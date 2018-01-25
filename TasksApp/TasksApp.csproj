@@ -53,6 +53,7 @@
     <Compile Include="Tasks\Task0004.cs" />
     <Compile Include="Tasks\Task0005.cs" />
     <Compile Include="Tasks\Task0006.cs" />
+    <Compile Include="Tasks\Task0325.cs" />
     <Compile Include="Tasks\Task0459.cs" />
   </ItemGroup>
   <ItemGroup>
