@@ -20,7 +20,7 @@ struct Period {
 };
 
 int main() {
-    uint32_t N, framesCount = 0, lampsCount = 0;
+    uint32_t N, M = 0, lampsCount = 0;
     uint16_t K, pkMax;
     // Кол-во лампочек и инверсий
     cin >> N >> K;
@@ -37,7 +37,6 @@ int main() {
     // Максимальный период
     pkMax = p.back().value;
     //
-    uint32_t M = 0;
     while (M < N) {
         uint64_t lampBits = 0;
         auto frame = min(static_cast<uint16_t>(N - M), pkMax);
