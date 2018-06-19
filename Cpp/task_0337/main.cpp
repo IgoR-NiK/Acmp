@@ -42,14 +42,9 @@ int main() {
         uint64_t lampBits = 0;
         auto frame = min(static_cast<uint16_t>(N - M), pkMax);
         cout << frame << "\n";
-//        for (auto pk : p) {
-//            uint16_t steps = 0;
-//            while (steps < frame) {
-//                steps += pk.offset + pk.value;
-//                lampBits ^= (uint32_t(1) << steps);
-//                pk.offset = steps % frame;
-//            }
-//        }
+
+        // TODO ???
+
         M += frame;
     }
 
