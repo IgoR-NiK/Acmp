@@ -1,27 +1,25 @@
 #include <iostream>
-#include <sstream>
 #include <vector>
 #include <cstdint>
 #include <algorithm>
 
+#include <sstream>
+
 using namespace std;
-#define U64(x) static_cast<uint64_t>(x)
-#define U32(x) static_cast<uint32_t>(x)
-#define U16(x) static_cast<uint16_t>(x)
 
 struct Period {
     // Смещение
-    uint16_t offset = 0;
+    uint16_t pos = 0;
     // Значение периода (постоянное)
-    uint16_t value = 0;
+    uint16_t step = 0;
 
     bool operator==(const Period &rhs) const {
-        return offset == rhs.offset &&
-               value == rhs.value;
+        return pos == rhs.pos &&
+               step == rhs.step;
     }
 
     bool operator<(const Period &rhs) const {
-        return value < rhs.value;
+        return step < rhs.step;
     }
 };
 
@@ -33,29 +31,36 @@ void run(istream &ins, ostream &outs) {
     // Периоды инверсий
     vector<Period> p(K);
     for (auto &pk : p)
-        ins >> pk.value;
+        ins >> pk.step;
     // Сортировка
-    auto pi = p.begin();
-    sort(pi, p.end());
+    sort(p.begin(), p.end());
     // Отсеивание парных
-    while ((pi = adjacent_find(pi, p.end())) != p.end())
-        p.erase(pi, ++pi);
+    for (;;) {
+        auto pi = adjacent_find(p.begin(), p.end());
+        if (pi == p.end()) break;
+        p.erase(pi, pi + 2);
+    }
     // Покадровое переключение лампочек
     while (N > 0) {
         // Битовый кадр и длина
         uint64_t lampsBitFrame = 0;
-        auto frameLength = U16(min(N, U32(p.back().value)));
+        auto frameLength = min(N, uint32_t(p.back().step));
+
         // Переключение лампочек согласно данным периода
         for (auto &pk : p) {
             // Переключение пока в пределах кадра
-            do lampsBitFrame ^= U64(1) << pk.offset;
-            while ((pk.offset += pk.value) <= frameLength);
+//            for (; pk.pos <= frameLength; pk.pos += pk.step)
+//                lampsBitFrame ^= uint64_t(1) << uint8_t(pk.pos);
+            while ((pk.pos += pk.step) < frameLength) {
+                pk.pos += pk.step;
+                lampsBitFrame ^= uint64_t(1) << uint8_t(pk.pos);
+            }
             // Ограничение смещение в пределах кадра
-            pk.offset %= frameLength;
+            pk.pos %= frameLength;
         }
 
-        while (lampsBitFrame > U64(0))
-            L += (lampsBitFrame >>= U64(1)) & U64(1);
+        while (lampsBitFrame > 0)
+            L += (lampsBitFrame >>= 1) & uint64_t(1);
 
         N -= frameLength;
     }
@@ -63,19 +68,44 @@ void run(istream &ins, ostream &outs) {
     outs << L;
 }
 
-void test(const char *input) {
-    stringstream ex;
-    ex << input;
+void test(const std::string &input, const std::string &output = "") {
+    static uint32_t testCounter = 0;
+
+    stringstream ss;
+    ss << input;
+    cout << " ==== TEST " << ++testCounter << " ==== \n";
     cout << "IN: " << input << "OUT: ";
-    run(ex, cout);
+
+    run(ss, ss);
+
+    std::string result;
+    ss >> result;
+    cout << result;
+    if (!output.empty()) {
+        cout << " - ";
+        if (result == output)
+            cout << "DONE!";
+        else
+            cout << "FAIL! (Not equal '" << output << "')";
+    }
     cout << "\n\n";
 }
 
-int main() {
-    // FIXME Wrong Answer on test 5 (8466247)
+void tests() {
+    test("20 3 \n 2 3 8 \n", "8");
+    test("172 10 \n 19 2 7 13 40 23 16 1 45 9 \n", "99");
+//    stringstream num;
+//    for (int i = 1; i <= 50; i++)
+//        num << i << " ";
+//    test("100000 50 \n " + num.str() + " \n");
+//    test("171 10 \n 19 2 7 13 40 23 16 1 45 9 \n");
+    test("171 5 \n 19 2 7 13 40 \n", "79");
+    test("172 5 \n 19 2 7 13 40 \n", "80");
+    test("171 6 \n 19 2 7 13 40 1\n", "93");
+    test("172 6 \n 19 2 7 13 40 1\n", "92");
+}
 
-    test("20 3 \n 2 3 8 \n");
-    test("172 10 \n 19 2 7 13 40 23 16 1 45 9 \n");
-    test("1000000000 4 \n 17 13 31 43 \n");
-    run(cin, cout);
+int main() {
+    tests();
+//    run(cin, cout);
 }
