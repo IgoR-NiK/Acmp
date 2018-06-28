@@ -64,6 +64,7 @@
     <Compile Include="Tests\Task0009Test.cs" />
     <Compile Include="Tests\Task0010Test.cs" />
     <Compile Include="Tests\Task0011Test.cs" />
+    <Compile Include="Tests\Task0014Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
