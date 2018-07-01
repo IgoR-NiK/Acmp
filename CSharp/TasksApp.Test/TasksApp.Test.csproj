@@ -55,12 +55,13 @@
     <Compile Include="Tests\Task0004Test.cs" />
     <Compile Include="Tests\Task0005Test.cs" />
     <Compile Include="Tests\Task0006Test.cs" />
+    <Compile Include="Tests\Task0035Test.cs" />
     <Compile Include="Tests\Task0027Test.cs" />
     <Compile Include="Tests\Task0026Test.cs" />
     <Compile Include="Tests\Task0025Test.cs" />
     <Compile Include="Tests\Task0022Test.cs" />
     <Compile Include="Tests\Task0021Test.cs" />
-	<Compile Include="Tests\Task0033Test.cs" />
+    <Compile Include="Tests\Task0033Test.cs" />
     <Compile Include="Tests\Task0337Test.cs" />
     <Compile Include="Tests\Task0459Test.cs" />
     <Compile Include="Tests\Task0325Test.cs" />
