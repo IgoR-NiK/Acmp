@@ -1,2 +1,9 @@
-*cmake-build-*
+# IntelliJ IDE's workspace
 .idea/workspace.xml
+
+# Qt Project file
+CMakeLists.txt.user
+
+# CMake builds
+*cmake-build*
+builds
