@@ -1,26 +1,20 @@
 #
-# root cmake-project
+# Корень CMake-проекта
 #
-
 cmake_minimum_required(VERSION 3.10)
-project(acmp_cpp)
+
+include(common.cmake)
+set(ACMP_CPP_TASK_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Task")
+set(ACMP_CPP_TEST_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Test")
+set(ACMP_CPP_LIB_TESTING_DIR "${ACMP_CPP_TEST_DIR}/libTesting")
+set(ACMP_CPP_LIB_TESTING_TARGET acmp_lib_testing)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")   # static link GCC standart library
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")   # Статическая линковка стандартной библиотеки std GCC
 
-file(GLOB ACMP_TASK_DIRS "task_*")
+# Добавление вспомогательной библиотеки
+add_subdirectory("${ACMP_CPP_LIB_TESTING_DIR}/")
+message(STATUS "[+] libTesting added")
 
-message(STATUS "===== TASKS ADDING =====")
-foreach (task_dir_full_name ${ACMP_TASK_DIRS})
-    add_subdirectory(${task_dir_full_name})
-    string(LENGTH
-           ${CMAKE_CURRENT_SOURCE_DIR} project_path_length)
-    string(SUBSTRING
-           ${task_dir_full_name}
-           ${project_path_length}
-           10 # length of "tast_XXXX"; XXXX -- task number
-           task_dir_short_name)
-
-    message(STATUS "${task_dir_short_name} -- added")
-endforeach (task_dir_full_name)
-message(STATUS "========================")
+# Добавление задач
+acmp_define_tasks()

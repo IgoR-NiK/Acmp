@@ -1,5 +1,5 @@
 # IntelliJ IDE's workspace
-.idea/workspace.xml
+.idea
 
 # Qt Project file
 CMakeLists.txt.user

@@ -1,8 +1,10 @@
-#include <iostream>
+#include "../solution.h"
+
+// BEGIN COPY SELECTION
+
 #include <vector>
 #include <cstdint>
 #include <algorithm>
-
 #include <sstream>
 
 using namespace std;
@@ -23,15 +25,15 @@ struct Period {
     }
 };
 
-void run(istream &ins, ostream &outs) {
+void solution(std::istream &I, std::ostream &O) {
     uint32_t N, L = 0;
     uint16_t K;
     // Кол-во лампочек и инверсий
-    ins >> N >> K;
+    I >> N >> K;
     // Периоды инверсий
     vector<Period> p(K);
     for (auto &pk : p)
-        ins >> pk.step;
+        I >> pk.step;
     // Сортировка
     sort(p.begin(), p.end());
     // Отсеивание парных
@@ -65,47 +67,5 @@ void run(istream &ins, ostream &outs) {
         N -= frameLength;
     }
 
-    outs << L;
-}
-
-void test(const std::string &input, const std::string &output = "") {
-    static uint32_t testCounter = 0;
-
-    stringstream ss;
-    ss << input;
-    cout << " ==== TEST " << ++testCounter << " ==== \n";
-    cout << "IN: " << input << "OUT: ";
-
-    run(ss, ss);
-
-    std::string result;
-    ss >> result;
-    cout << result;
-    if (!output.empty()) {
-        cout << " - ";
-        if (result == output)
-            cout << "DONE!";
-        else
-            cout << "FAIL! (Not equal '" << output << "')";
-    }
-    cout << "\n\n";
-}
-
-void tests() {
-    test("20 3 \n 2 3 8 \n", "8");
-    test("172 10 \n 19 2 7 13 40 23 16 1 45 9 \n", "99");
-//    stringstream num;
-//    for (int i = 1; i <= 50; i++)
-//        num << i << " ";
-//    test("100000 50 \n " + num.str() + " \n");
-//    test("171 10 \n 19 2 7 13 40 23 16 1 45 9 \n");
-    test("171 5 \n 19 2 7 13 40 \n", "79");
-    test("172 5 \n 19 2 7 13 40 \n", "80");
-    test("171 6 \n 19 2 7 13 40 1\n", "93");
-    test("172 6 \n 19 2 7 13 40 1\n", "92");
-}
-
-int main() {
-    tests();
-//    run(cin, cout);
+    O << L;
 }
