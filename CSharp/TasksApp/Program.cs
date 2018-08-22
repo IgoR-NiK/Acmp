@@ -7,7 +7,7 @@ namespace TasksApp
     {
         static void Main(string[] args)
         {
-            Task0082.Main();
+            Task0107.Main();
             Console.ReadKey();
         }
     }
