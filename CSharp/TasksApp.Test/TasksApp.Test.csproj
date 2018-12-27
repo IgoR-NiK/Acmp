@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\Task0143Test.cs" />
     <Compile Include="Tests\Task0131Test.cs" />
     <Compile Include="Tests\Task0119Test.cs" />
     <Compile Include="Tests\Task0108Test.cs" />
