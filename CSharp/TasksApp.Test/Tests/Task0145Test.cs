@@ -10,7 +10,7 @@ namespace TasksApp.Test.Tests
 		private void CheckTest(Task0145.BigInteger a, int b, string result)
 		{
 			var resultTest = Task0145.Solve(a, b);
-			Assert.AreEqual(result.ToString(), result);
+			Assert.AreEqual(resultTest.ToString(), result);
 		}
 
 		[TestMethod]
