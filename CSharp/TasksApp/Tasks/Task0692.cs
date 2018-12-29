@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace TasksApp.Tasks
 {
@@ -39,7 +38,14 @@ namespace TasksApp.Tasks
 
         public static string Solve(int n)
         {
-			return Enumerable.Range(0, 13).Any(x => Math.Pow(2, x) == n) ? "YES" : "NO";
+			for (var i = 0; i < 14; i++)
+			{
+				if (Math.Pow(2, i) == n)
+				{
+					return "YES";
+				}
+			}
+			return "NO";
         }
 
         private static void PrintResult(string result)
