@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests\Task0539Test.cs" />
+    <Compile Include="Tests\Task0754Test.cs" />
     <Compile Include="Tests\Task0755Test.cs" />
     <Compile Include="Tests\Task0773Test.cs" />
     <Compile Include="Tests\Task0195Test.cs" />
