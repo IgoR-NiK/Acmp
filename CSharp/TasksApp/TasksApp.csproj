@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\Task0032.cs" />
     <Compile Include="Tasks\Task0819.cs" />
     <Compile Include="Tasks\Task0685.cs" />
     <Compile Include="Tasks\Task0892.cs" />
