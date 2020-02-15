@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0102Test
     {
         private void CheckTest(Task0102.Point[] points, string result)
@@ -13,7 +12,7 @@ namespace TasksApp.Test.Tests
             Assert.AreEqual(resultTest, result);
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest(new[]{
@@ -23,7 +22,7 @@ namespace TasksApp.Test.Tests
                 new Task0102.Point() { X = 100, Y = 100 } }, "Out");
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
             CheckTest(new[]{
@@ -33,7 +32,7 @@ namespace TasksApp.Test.Tests
                 new Task0102.Point() { X = 10, Y = 10 } }, "In");
         }
 
-        [TestMethod]
+        [Test]
         public void Test3()
         {
             CheckTest(new[]{
@@ -43,7 +42,7 @@ namespace TasksApp.Test.Tests
                 new Task0102.Point() { X = 50, Y = 50 } }, "In");
         }
 
-        [TestMethod]
+        [Test]
         public void Test4()
         {
             CheckTest(new[]{

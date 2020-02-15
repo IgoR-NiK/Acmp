@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0325Test
     {
         private void CheckTest(string firstCoordinate, string secondCoordinate, string output)
@@ -13,25 +12,25 @@ namespace TasksApp.Test.Tests
             Assert.AreEqual(test, output);
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest("a1", "h8", "NO");
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
             CheckTest("a1", "b3", "1");
         }
 
-        [TestMethod]
+        [Test]
         public void Test3()
         {
             CheckTest("a1", "d4", "2");
         }
 
-        [TestMethod]
+        [Test]
         public void Test4()
         {
             CheckTest("c4", "c4", "2");

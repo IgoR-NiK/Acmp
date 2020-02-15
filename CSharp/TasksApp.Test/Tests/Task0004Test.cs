@@ -1,31 +1,30 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0004Test
     {
-        private void CheckTest(int k, string result)
+        private static void CheckTest(int k, string result)
         {
-            var resultTest = Task0004.Solve(k);
-            Assert.AreEqual(resultTest, result);
+            var answer = Task0004.Solve(k);
+            Assert.AreEqual(result, answer);
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest(5, "594");
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
             CheckTest(2, "297");
         }
 
-        [TestMethod]
+        [Test]
         public void Test3()
         {
             CheckTest(7, "792");

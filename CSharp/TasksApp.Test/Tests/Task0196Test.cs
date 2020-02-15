@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0196Test
     {
         private void CheckTest(int n, int[][] result)
@@ -22,7 +21,7 @@ namespace TasksApp.Test.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest(
@@ -34,7 +33,7 @@ namespace TasksApp.Test.Tests
                 });
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
             CheckTest(
@@ -47,7 +46,7 @@ namespace TasksApp.Test.Tests
                 });
         }
 
-        [TestMethod]
+        [Test]
         public void Test3()
         {
             CheckTest(

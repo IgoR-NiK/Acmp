@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0119Test
     {
         private void CheckTest(Task0119.TimeInterval[] input, Task0119.TimeInterval[] result)
@@ -20,7 +19,7 @@ namespace TasksApp.Test.Tests
 			}
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest(new[] 

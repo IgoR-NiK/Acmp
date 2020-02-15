@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0035Test
     {
         private void CheckTest(int[] n, int[] m, long[] result)
@@ -16,13 +15,13 @@ namespace TasksApp.Test.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest(new[] { 2, 13, 5, 18 }, new[] { 0, 20, 23, 6 }, new long[] { 44344, 48134, 45699, 49458 });
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
             CheckTest(new[] { 15, 1000 }, new[] { 20, 26000 }, new long[] { 48767, 1340237 });

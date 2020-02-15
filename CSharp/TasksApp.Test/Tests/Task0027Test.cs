@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0027Test
     {
         private void CheckTest(int w, int h, int n, Task0027.Rectangle[] rectangles, int output)
@@ -13,7 +12,7 @@ namespace TasksApp.Test.Tests
             Assert.AreEqual(test, output);
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             var rectangles = new Task0027.Rectangle[]
@@ -32,7 +31,7 @@ namespace TasksApp.Test.Tests
             CheckTest(5, 5, 2, rectangles, 18);
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
             var rectangles = new Task0027.Rectangle[]

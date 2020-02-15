@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0008Test
     {
         private void CheckTest(int a, int b, int c, string output)
@@ -13,13 +12,13 @@ namespace TasksApp.Test.Tests
             Assert.AreEqual(test, output);
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest(8, 54, 432, "YES");
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
             CheckTest(16, 19, 777, "NO");

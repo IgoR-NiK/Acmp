@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0058Test
     {
         private void CheckTest(Task0058.Set[] inputSet, string[] result)
@@ -16,7 +15,7 @@ namespace TasksApp.Test.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
             CheckTest(new Task0058.Set[]

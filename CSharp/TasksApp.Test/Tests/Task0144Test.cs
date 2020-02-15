@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-	[TestClass]
+	[TestFixture]
 	public class Task0144Test
 	{
 		private void CheckTest(Task0144.BigInteger a, int b, string result)
@@ -13,7 +12,7 @@ namespace TasksApp.Test.Tests
 			Assert.AreEqual(resultTest.ToString(), result);
 		}
 
-		[TestMethod]
+		[Test]
 		public void Test1()
 		{
 			CheckTest(new Task0144.BigInteger("5"), 7, "35");

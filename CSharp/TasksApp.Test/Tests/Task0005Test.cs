@@ -1,14 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class Task0005Test
     {
-        private void CheckTest(Task0005.Output result, string answer, int n, params int[] days)
+        private static void CheckTest(Task0005.Output result, string answer, int n, params int[] days)
         {
             var resultTest = Task0005.Solve(n, days);
             
@@ -21,24 +20,24 @@ namespace TasksApp.Test.Tests
             Assert.AreEqual(resultTest.Answer, answer);
         }
 
-        [TestMethod]
+        [Test]
         public void Test1()
         {
-            Task0005.Output output = new Task0005.Output()
+            var output = new Task0005.Output
             {
-                EvenDays = new List<int>() { 4, 16, 2 },
-                OddDays = new List<int>() { 19, 31 }
+                EvenDays = new List<int> { 4, 16, 2 },
+                OddDays = new List<int> { 19, 31 }
             };
             CheckTest(output, "YES", 5, 4, 16, 19, 31, 2);
         }
 
-        [TestMethod]
+        [Test]
         public void Test2()
         {
-            Task0005.Output output = new Task0005.Output()
+            var output = new Task0005.Output
             {
-                EvenDays = new List<int>() { 4, 12, 24 },
-                OddDays = new List<int>() { 29, 7, 15, 17, 1 }
+                EvenDays = new List<int> { 4, 12, 24 },
+                OddDays = new List<int> { 29, 7, 15, 17, 1 }
             };
             CheckTest(output, "NO", 8, 29, 4, 7, 12, 15, 17, 24, 1);
         }
