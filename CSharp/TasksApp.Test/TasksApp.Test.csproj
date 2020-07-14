@@ -138,6 +138,7 @@
     <Compile Include="Tests\Task0010Test.cs" />
     <Compile Include="Tests\Task0011Test.cs" />
     <Compile Include="Tests\Task0014Test.cs" />
+    <Compile Include="Tests\Task1003Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TasksApp\TasksApp.csproj">
