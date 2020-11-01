@@ -182,6 +182,7 @@
     <Compile Include="Tests\Task1235Test.cs" />
     <Compile Include="Tests\Task1236Test.cs" />
     <Compile Include="Tests\Task1237Test.cs" />
+    <Compile Include="Tests\Task1238Test.cs" />
     <Compile Include="Tests\Task1314Test.cs" />
     <Compile Include="Tests\Task1396Test.cs" />
   </ItemGroup>
