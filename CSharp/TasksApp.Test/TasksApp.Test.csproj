@@ -178,6 +178,7 @@
     <Compile Include="Tests\Task1152Test.cs" />
     <Compile Include="Tests\Task1167Test.cs" />
     <Compile Include="Tests\Task1214Test.cs" />
+    <Compile Include="Tests\Task1232Test.cs" />
     <Compile Include="Tests\Task1314Test.cs" />
     <Compile Include="Tests\Task1396Test.cs" />
   </ItemGroup>
