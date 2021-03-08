@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests\Task0032Test.cs" />
+    <Compile Include="Tests\Task0041Test.cs" />
     <Compile Include="Tests\Task0046Test.cs" />
     <Compile Include="Tests\Task0174Test.cs" />
     <Compile Include="Tests\Task0196Test.cs" />
