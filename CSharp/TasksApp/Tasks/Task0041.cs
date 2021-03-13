@@ -1,9 +1,9 @@
-﻿namespace TasksApp.Tasks
+﻿using System;
+using System.Text;
+using System.IO;
+
+namespace TasksApp.Tasks
 {
-    using System;
-    using System.Text;
-    using System.IO;
-   
     /// <summary>
     /// Задача 41 - "Сортировка подсчетом"
     /// (Время: 2 сек. Память: 128 Мб Сложность: 29%)
