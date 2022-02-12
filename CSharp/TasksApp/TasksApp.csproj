@@ -187,6 +187,7 @@
     <Compile Include="Tasks\Task1237.cs" />
     <Compile Include="Tasks\Task1238.cs" />
     <Compile Include="Tasks\Task1314.cs" />
+    <Compile Include="Tasks\Task1479.cs" />
     <Compile Include="Tasks\Task1396.cs" />
   </ItemGroup>
   <ItemGroup>
