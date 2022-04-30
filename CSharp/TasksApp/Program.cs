@@ -3,9 +3,9 @@ using TasksApp.Tasks;
 
 namespace TasksApp
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Task0107.Main();
             Console.ReadKey();

@@ -17,9 +17,8 @@ namespace TasksApp.Tasks
     public static class Task0001 
     {
         public static void Main()
-        {            
-            int a, b;
-            GetInputData(out a, out b);
+        {
+            GetInputData(out var a, out var b);
 
             var result = Solve(a, b);
 
@@ -28,9 +27,9 @@ namespace TasksApp.Tasks
 
         private static void GetInputData(out int a, out int b)
         {
-            var inputData = Console.ReadLine().Split();
-            a = int.Parse(inputData[0]);
-            b = int.Parse(inputData[1]);
+            var inputData = Console.ReadLine()?.Split();
+            int.TryParse(inputData?[0], out a);
+            int.TryParse(inputData?[1], out b);
         }
 
         public static int Solve(int a, int b)

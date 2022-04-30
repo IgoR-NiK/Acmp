@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace TasksApp.Tasks
 {
@@ -100,7 +101,7 @@ namespace TasksApp.Tasks
             Console.WriteLine(result.Count);
             foreach (var root in result.Roots)
             {
-                Console.WriteLine(Math.Round(root, 4).ToString().Replace(',', '.'));
+                Console.WriteLine(Math.Round(root, 4).ToString(CultureInfo.InvariantCulture).Replace(',', '.'));
             }
         }
         

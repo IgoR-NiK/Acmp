@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0325Test
     {
-        private void CheckTest(string firstCoordinate, string secondCoordinate, string output)
+        private static void CheckTest(string firstCoordinate, string secondCoordinate, string output)
         {
             var test = Task0325.Solve(firstCoordinate, secondCoordinate);
             Assert.AreEqual(test, output);

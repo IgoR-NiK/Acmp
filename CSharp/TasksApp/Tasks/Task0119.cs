@@ -35,7 +35,7 @@ namespace TasksApp.Tasks
 			for (var i = 0; i < n; i++)
 			{
 				var time = Console.ReadLine().Split();
-				input[i] = new TimeInterval()
+				input[i] = new TimeInterval
 				{
 					Hours = int.Parse(time[0]),
 					Minutes = int.Parse(time[1]),

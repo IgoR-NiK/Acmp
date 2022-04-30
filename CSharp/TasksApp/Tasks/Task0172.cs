@@ -19,7 +19,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {            
-            GetInputData(out BigInteger n, out int k);
+            GetInputData(out var n, out var k);
 						
 			var result = Solve(n, k);
 
@@ -46,31 +46,31 @@ namespace TasksApp.Tasks
 		public class BigInteger
 		{
 			// Массив, который хранит большое число
-			private List<int> arr = new List<int>();
+			private readonly List<int> _arr = new List<int>();
 
 			// Количество цифр в одном элементе массива    
-			private static int order = 8;
+			private static readonly int Order = 8;
 
 			public BigInteger() { }
 			public BigInteger(string s)
 			{
-				int whole = s.Length / order, rest = s.Length % order;
+				int whole = s.Length / Order, rest = s.Length % Order;
 
-				for (int i = 1; i <= whole; i++)
-					arr.Add(int.Parse(s.Substring(s.Length - order * i, order)));
+				for (var i = 1; i <= whole; i++)
+					_arr.Add(int.Parse(s.Substring(s.Length - Order * i, Order)));
 
 				if (rest != 0)
-					arr.Add(int.Parse(s.Substring(0, rest)));
+					_arr.Add(int.Parse(s.Substring(0, rest)));
 			}
 
 			// Остаток от деления большого неотрицательного числа на короткое неотрицательное число
-			public static int operator %(BigInteger A, int B)
+			public static int operator %(BigInteger a, int b)
 			{
-				int r = 0, myBase = (int)Math.Pow(10, order);
-				for (int i = A.arr.Count - 1; i >= 0; i--)
+				int r = 0, myBase = (int)Math.Pow(10, Order);
+				for (var i = a._arr.Count - 1; i >= 0; i--)
 				{
-					long temp = (long)r * (long)myBase + A.arr[i];
-					r = (int)(temp % B);
+					var temp = r * (long)myBase + a._arr[i];
+					r = (int)(temp % b);
 				}
 
 				return r;

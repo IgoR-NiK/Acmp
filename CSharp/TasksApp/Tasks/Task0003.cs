@@ -24,8 +24,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            long a;
-            GetInputData(out a);
+            GetInputData(out var a);
 
             var result = Solve(a);
 
@@ -34,7 +33,7 @@ namespace TasksApp.Tasks
 
         private static void GetInputData(out long a)
         {
-            a = long.Parse(Console.ReadLine());
+            long.TryParse(Console.ReadLine(), out a);
         }
 
         public static long Solve(long a)

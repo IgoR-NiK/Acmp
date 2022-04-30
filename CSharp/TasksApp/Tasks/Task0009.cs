@@ -28,9 +28,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int n;
-            int[] array;
-            GetInputData(out n, out array);
+            GetInputData(out var n, out var array);
 
             var result = Solve(n, array);
 
@@ -62,7 +60,7 @@ namespace TasksApp.Tasks
 
             var result = new Result
             {
-                Sum = array.Sum(x => (x > 0) ? x : 0),
+                Sum = array.Sum(x => x > 0 ? x : 0),
                 Mul = mul
             };
 
@@ -82,7 +80,7 @@ namespace TasksApp.Tasks
 
         public override string ToString()
         {
-            return String.Format("{0} {1}", Sum, Mul);
+            return $"{Sum} {Mul}";
         }
     }
 }

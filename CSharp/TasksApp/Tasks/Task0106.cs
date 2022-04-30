@@ -21,8 +21,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int[] array;
-            GetInputData(out array);
+            GetInputData(out var array);
 
             var result = Solve(array);
 

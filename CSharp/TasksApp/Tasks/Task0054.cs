@@ -26,9 +26,7 @@ namespace TasksApp.Tasks
 	{
 		public static void Main()
 		{
-			int n, m;
-			int[,] field;
-			GetInputData(out n, out m, out field);
+			GetInputData(out var n, out var m, out var field);
 
 			var result = Solve(n, m, field);
 
@@ -91,7 +89,7 @@ namespace TasksApp.Tasks
 				}
 			}
 
-			return new Result() { Max = min[0], Min = max[0] };
+			return new Result { Max = min[0], Min = max[0] };
         }
 
 		private static void PrintResult(Result result)
@@ -106,7 +104,7 @@ namespace TasksApp.Tasks
 
 			public override string ToString()
 			{
-				return String.Format("{0} {1}", Min, Max);
+				return $"{Min} {Max}";
 			}
 		}
 	}

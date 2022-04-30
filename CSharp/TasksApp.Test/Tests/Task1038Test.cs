@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task1038Test
     {
-        private void CheckTest(int n, int result)
+        private static void CheckTest(int n, int result)
         {
             var actual = Task1038.Solve(n);
 			Assert.AreEqual(result, actual);

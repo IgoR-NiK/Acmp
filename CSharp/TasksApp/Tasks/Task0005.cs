@@ -29,9 +29,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int n;
-            int[] days;
-            GetInputData(out n, out days);
+            GetInputData(out var n, out var days);
 
             var result = Solve(n, days);
 
@@ -41,7 +39,7 @@ namespace TasksApp.Tasks
         private static void GetInputData(out int n, out int[] days)
         {            
             n = int.Parse(Console.ReadLine());            
-            string[] str = Console.ReadLine().Split();
+            var str = Console.ReadLine().Split();
 
             days = new int[n];
             for (var i = 0; i < str.Length; i++)
@@ -50,7 +48,7 @@ namespace TasksApp.Tasks
 
         public static Output Solve(int n, int[] days)
         {
-            Output output = new Output();
+            var output = new Output();
 
             foreach (var day in days)
             {
@@ -88,17 +86,11 @@ namespace TasksApp.Tasks
             /// <summary>
             /// Ответ на задачу
             /// </summary>
-            public string Answer
-            {
-                get
-                {
-                    return (OddDays.Count > EvenDays.Count) ? "NO" : "YES";
-                }
-            }  
+            public string Answer => OddDays.Count > EvenDays.Count ? "NO" : "YES";
 
             public override string ToString()
             {
-                StringBuilder sb = new StringBuilder();
+                var sb = new StringBuilder();
 
                 foreach(var day in OddDays)
                 {

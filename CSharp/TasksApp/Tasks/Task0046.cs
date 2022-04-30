@@ -17,7 +17,7 @@ namespace TasksApp.Tasks
 	/// </summary>
 	public class Task0046
 	{
-		const string E = "2.7182818284590452353602875";
+		private const string E = "2.7182818284590452353602875";
 
 		public static void Main()
 		{

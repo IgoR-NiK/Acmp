@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task1115Test
     {
-        private void CheckTest(int n, int k, (int a, int b, int c) result)
+        private static void CheckTest(int n, int k, (int a, int b, int c) result)
         {
             var actual = Task1115.Solve(n, k);
 			Assert.AreEqual(result, actual);

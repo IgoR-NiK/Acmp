@@ -11,7 +11,7 @@ namespace TasksApp.Tasks
 	/// Даны два целых неотрицательных числа A и B. Требуется найти их произведение.
 	/// 
 	/// Входные данные
-	/// Во входном файле INPUT.TXT записаны целые неотрицательные числа A и B по одному в строке (A < 10^100, B ≤ 10000).
+	/// Во входном файле INPUT.TXT записаны целые неотрицательные числа A и B по одному в строке (A %lt; 10^100, B ≤ 10000).
 	/// 
 	/// Выходные данные
 	/// В выходной файл OUTPUT.TXT выведите единственное число без лидирующих нулей: A*B.
@@ -46,49 +46,49 @@ namespace TasksApp.Tasks
 		public class BigInteger
 		{
 			// Массив, который хранит большое числа
-			private List<int> arr = new List<int>();
+			private readonly List<int> _arr = new List<int>();
 
 			// Количество цифр в одном элементе массива    
-			private static int order = 8;
+			private const int Order = 8;
 
 			public BigInteger() { }
 			public BigInteger(string s)
 			{
-				int whole = s.Length / order, rest = s.Length % order;
+				int whole = s.Length / Order, rest = s.Length % Order;
 
-				for (int i = 1; i <= whole; i++)
-					arr.Add(int.Parse(s.Substring(s.Length - order * i, order)));
+				for (var i = 1; i <= whole; i++)
+					_arr.Add(int.Parse(s.Substring(s.Length - Order * i, Order)));
 
 				if (rest != 0)
-					arr.Add(int.Parse(s.Substring(0, rest)));
+					_arr.Add(int.Parse(s.Substring(0, rest)));
 			}
 
 			// Умножение большого числа на короткое
-			public static BigInteger operator *(BigInteger A, int B)
+			public static BigInteger operator *(BigInteger a, int b)
 			{
-				BigInteger C = new BigInteger();
+				var c = new BigInteger();
 
-				int k = 0, myBase = (int)Math.Pow(10, order);
-				for (int i = 0; i < A.arr.Count; i++)
+				int k = 0, myBase = (int)Math.Pow(10, Order);
+				for (var i = 0; i < a._arr.Count; i++)
 				{
-					long temp = A.arr[i] * (long)B + k;
-					C.arr.Add((int)(temp % myBase));
+					var temp = a._arr[i] * (long)b + k;
+					c._arr.Add((int)(temp % myBase));
 					k = (int)(temp / myBase);
 				}
-				C.arr.Add(k);
-				Normalize(C.arr);
+				c._arr.Add(k);
+				Normalize(c._arr);
 
-				return C;
+				return c;
 			}
 
 			// Вывод большого числа
 			public override string ToString()
 			{
-				StringBuilder ans = new StringBuilder();
+				var ans = new StringBuilder();
 
-				ans.Append(arr[arr.Count - 1].ToString());
-				for (int i = arr.Count - 2; i >= 0; i--)
-					ans.Append(arr[i].ToString().PadLeft(order, '0'));
+				ans.Append(_arr[_arr.Count - 1].ToString());
+				for (var i = _arr.Count - 2; i >= 0; i--)
+					ans.Append(_arr[i].ToString().PadLeft(Order, '0'));
 
 				return ans.ToString();
 			}

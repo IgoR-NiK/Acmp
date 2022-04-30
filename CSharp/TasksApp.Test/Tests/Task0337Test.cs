@@ -7,7 +7,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0337Test
     {
-        private void CheckTest(uint n, byte[] p, long result)
+        private static void CheckTest(uint n, byte[] p, long result)
         {
             var test = Task0337.Solve(n, p);
             Assert.AreEqual(test, result);

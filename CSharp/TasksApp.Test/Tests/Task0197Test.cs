@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0197Test
     {
-        private void CheckTest(int n, int[][] result)
+        private static void CheckTest(int n, int[][] result)
         {
             var solution = Task0197.Solve(n);
 
@@ -26,7 +26,8 @@ namespace TasksApp.Test.Tests
         {
             CheckTest(
                 3,
-                new int[][] {
+                new[]
+                {
                     new [] { 1, 3, 4 },
                     new [] { 2, 5, 8 },
                     new [] { 6, 7, 9 }
@@ -38,7 +39,8 @@ namespace TasksApp.Test.Tests
         {
             CheckTest(
                 4,
-                new int[][] {
+                new[]
+                {
                     new [] { 1, 3, 4, 10 },
                     new [] { 2, 5, 9, 11 },
                     new [] { 6, 8, 12, 15 },
@@ -51,7 +53,8 @@ namespace TasksApp.Test.Tests
         {
             CheckTest(
                 5,
-                new int[][] {
+                new[]
+                {
                     new [] { 1, 3, 4, 10, 11 },
                     new [] { 2, 5, 9, 12, 19 },
                     new [] { 6, 8, 13, 18, 20 },

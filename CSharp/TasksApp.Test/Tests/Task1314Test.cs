@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task1314Test
     {
-        private void CheckTest(int l1, int w1, int h1, int l2, int w2, int h2, int lc, int wc, int hc, string result)
+        private static void CheckTest(int l1, int w1, int h1, int l2, int w2, int h2, int lc, int wc, int hc, string result)
         {
             var actual = Task1314.Solve(l1, w1, h1, l2, w2, h2, lc, wc, hc);
             

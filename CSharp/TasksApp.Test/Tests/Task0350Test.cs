@@ -7,7 +7,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0350Test
     {
-        private void CheckTest(string input, string[] result)
+        private static void CheckTest(string input, string[] result)
         {
             var test = Task0350.Solve(input);
             

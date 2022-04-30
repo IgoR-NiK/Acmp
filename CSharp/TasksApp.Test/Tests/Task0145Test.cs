@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
 	[TestFixture]
 	public class Task0145Test
 	{
-		private void CheckTest(Task0145.BigInteger a, int b, string result)
+		private static void CheckTest(Task0145.BigInteger a, int b, string result)
 		{
 			var resultTest = Task0145.Solve(a, b);
 			Assert.AreEqual(resultTest.ToString(), result);

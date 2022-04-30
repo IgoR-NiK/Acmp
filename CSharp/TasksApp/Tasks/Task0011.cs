@@ -26,8 +26,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int k, n;
-            GetInputData(out k, out n);
+            GetInputData(out var k, out var n);
 
             var result = Solve(k, n);
 
@@ -44,19 +43,19 @@ namespace TasksApp.Tasks
 
         public static string Solve(int k, int n)
         {
-            byte[][] A = new byte[n + 1][];
+            var a = new byte[n + 1][];
 
-            A[0] = new byte[] { 1 };
-            for (int i = 1; i <= n; i++)
+            a[0] = new byte[] { 1 };
+            for (var i = 1; i <= n; i++)
             {
-                A[i] = new byte[] { 0 };
-                for (int j = i - k > 0 ? i - k : 0; j < i; j++)
-                    A[i] = Sum(A[i], A[j]);
+                a[i] = new byte[] { 0 };
+                for (var j = i - k > 0 ? i - k : 0; j < i; j++)
+                    a[i] = Sum(a[i], a[j]);
             }
 
-            string output = String.Empty;
-            for (int i = A[n].Length - 1; i >= 0; i--)
-                output += A[n][i];
+            var output = string.Empty;
+            for (var i = a[n].Length - 1; i >= 0; i--)
+                output += a[n][i];
 
             return output;
         }
@@ -68,16 +67,16 @@ namespace TasksApp.Tasks
 
         private static byte[] Sum(byte[] a, byte[] b)
         {
-            int maxLength = Math.Max(a.Length, b.Length);
+            var maxLength = Math.Max(a.Length, b.Length);
             byte[] ch1 = new byte[maxLength], ch2 = new byte[maxLength], output = new byte[maxLength];
-            byte k, p = 0;
+            byte p = 0;
 
             a.CopyTo(ch1, 0);
             b.CopyTo(ch2, 0);
 
-            for (int i = 0; i < maxLength; i++)
+            for (var i = 0; i < maxLength; i++)
             {
-                k = (byte)(ch1[i] + ch2[i] + p);
+                var k = (byte)(ch1[i] + ch2[i] + p);
                 if (k > 9)
                 {
                     p = 1;
@@ -89,9 +88,10 @@ namespace TasksApp.Tasks
                     output[i] = k;
                 }
             }
+            
             if (p == 1)
             {
-                byte[] temp = new byte[maxLength + 1];
+                var temp = new byte[maxLength + 1];
                 output.CopyTo(temp, 0);
                 temp[maxLength] = 1;
                 return temp;

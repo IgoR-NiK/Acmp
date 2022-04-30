@@ -25,8 +25,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            Set[] inputSet;
-            GetInputData(out inputSet);
+            GetInputData(out var inputSet);
 
             var result = Solve(inputSet);
 

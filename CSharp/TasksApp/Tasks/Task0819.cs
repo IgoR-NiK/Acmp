@@ -37,7 +37,7 @@ namespace TasksApp.Tasks
 			c = long.Parse(inputData[2]);
 		}
 
-		public static Result Solve(long a, long b, long c) => new Result()
+		public static Result Solve(long a, long b, long c) => new Result
 		{
 			V = a * b * c,
 			S = 2 * (a * b + b * c + a * c)

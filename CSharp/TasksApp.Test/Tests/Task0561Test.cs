@@ -7,7 +7,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0561Test
     {
-        private void CheckTest(Task0561.Tower[] towers, int[] result)
+        private static void CheckTest(Task0561.Tower[] towers, int[] result)
         {
             var solution = Task0561.Solve(towers).ToArray();
 

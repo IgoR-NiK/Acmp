@@ -13,14 +13,13 @@ namespace TasksApp.Tasks
     /// В двух строчках входного файла INPUT.TXT записаны числа A и B, не превосходящие по абсолютной величине 2*10^9.
     /// 
     /// Выходные данные
-    /// Запишите в выходной файл OUTPUT.TXT один символ “<”, если A < B, “>”, если A > B и “=”, если A=B.
+    /// Запишите в выходной файл OUTPUT.TXT один символ “&lt;”, если A &lt; B, “>”, если A > B и “=”, если A=B.
     /// </summary>
     public class Task0025
     {
         public static void Main()
         {
-            int a, b;
-            GetInputData(out a, out b);
+            GetInputData(out var a, out var b);
 
             var result = Solve(a, b);
 

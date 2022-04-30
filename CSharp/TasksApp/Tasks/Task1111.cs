@@ -33,7 +33,7 @@ namespace TasksApp.Tasks
 
         public static int Solve(int n)
         {
-	        return (n / 10) % 10;
+	        return n / 10 % 10;
         }
 
         private static void PrintResult(int result)

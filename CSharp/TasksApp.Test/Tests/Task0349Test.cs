@@ -8,7 +8,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0349Test
     {
-        private void CheckTest(int m, int n, List<int> expected)
+        private static void CheckTest(int m, int n, List<int> expected)
         {
             var actual = Task0349.Solve(m, n).ToList();
             

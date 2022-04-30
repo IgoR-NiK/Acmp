@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
@@ -7,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0364Test
     {
-        private void CheckTest(long m, long n, long[] result)
+        private static void CheckTest(long m, long n, long[] result)
         {
             var test = Task0364.Solve(m, n);
             
@@ -38,7 +37,7 @@ namespace TasksApp.Test.Tests
         [Test]
         public void Test4()
         {
-            CheckTest(2305843008139952128, 2305843008139952128, new long[] { 2305843008139952128});
+            CheckTest(2305843008139952128, 2305843008139952128, new[] { 2305843008139952128});
         }
     }
 }

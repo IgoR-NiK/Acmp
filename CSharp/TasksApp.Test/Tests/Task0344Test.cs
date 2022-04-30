@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0344Test
     {
-        private void CheckTest(Task0344.Point[] points, Task0344.Result result)
+        private static void CheckTest(Task0344.Point[] points, Task0344.Result result)
         {
             var actual = Task0344.Solve(points);
             

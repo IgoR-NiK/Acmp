@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0028Test
     {
-        private void CheckTest(Task0028.Line line, Task0028.Point a, Task0028.Point actual)
+        private static void CheckTest(Task0028.Line line, Task0028.Point a, Task0028.Point actual)
         {
             var test = Task0028.Solve(line, a);
             Assert.AreEqual(test, actual);

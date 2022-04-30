@@ -40,8 +40,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            string input;
-            GetInputData(out input);
+            GetInputData(out var input);
 
             var result = Solve(input);
 
@@ -76,19 +75,19 @@ namespace TasksApp.Tasks
             switch (index)
             {
                 case 0:
-                    result.Number = String.Format("{0}-{1}", input.Substring(0, 4), input.Substring(4, 3));
+                    result.Number = $"{input.Substring(0, 4)}-{input.Substring(4, 3)}";
                     break;
                 case 1:
-                    result.Number = String.Format("{0}-{1}", input.Substring(0, 3), input.Substring(3, 4));
+                    result.Number = $"{input.Substring(0, 3)}-{input.Substring(3, 4)}";
                     break;
                 case 2:
-                    result.Number = String.Format("{0}-{1}-{2}", input.Substring(0, 3), input.Substring(3, 2), input.Substring(5, 2));
+                    result.Number = $"{input.Substring(0, 3)}-{input.Substring(3, 2)}-{input.Substring(5, 2)}";
                     break;
                 case 3:
-                    result.Number = String.Format("{0}-{1}-{2}", input.Substring(0, 2), input.Substring(2, 3), input.Substring(5, 2));
+                    result.Number = $"{input.Substring(0, 2)}-{input.Substring(2, 3)}-{input.Substring(5, 2)}";
                     break;
                 case 4:
-                    result.Number = String.Format("{0}-{1}-{2}", input.Substring(0, 2), input.Substring(2, 2), input.Substring(4, 3));
+                    result.Number = $"{input.Substring(0, 2)}-{input.Substring(2, 2)}-{input.Substring(4, 3)}";
                     break;
             }
 
@@ -108,11 +107,11 @@ namespace TasksApp.Tasks
 
             public override string ToString()
             {
-                return String.Format("{0}\n{1}", Number, Weight);
+                return $"{Number}\n{Weight}";
             }
         }
 
-        static int Count(string a, string b)
+        private static int Count(string a, string b)
         {
             var s = 0;
 
@@ -130,7 +129,7 @@ namespace TasksApp.Tasks
             return s;
         }
 
-        static int Count(string a, string b, string c)
+        private static int Count(string a, string b, string c)
         {
             var s = 0;
 

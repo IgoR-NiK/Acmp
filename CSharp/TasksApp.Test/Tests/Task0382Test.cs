@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
@@ -7,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0382Test
     {
-        private void CheckTest(int[,] field, long result)
+        private static void CheckTest(int[,] field, long result)
         {
             var test = Task0382.Solve(field);
 

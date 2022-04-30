@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using TasksApp.Tasks;
 
 namespace TasksApp.Test.Tests
@@ -7,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0411Test
     {
-        private void CheckTest(int a, int b, int c, Task0411.Result result)
+        private static void CheckTest(int a, int b, int c, Task0411.Result result)
         {
             var test = Task0411.Solve(a, b, c);
 

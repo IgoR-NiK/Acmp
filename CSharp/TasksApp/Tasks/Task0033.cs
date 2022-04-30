@@ -25,8 +25,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int a, b;
-            GetInputData(out a, out b);
+	        GetInputData(out var a, out var b);
 
             var result = Solve(a, b);
 
@@ -44,7 +43,7 @@ namespace TasksApp.Tasks
         public static Result Solve(int a, int b)
         {
 			var n = a + b - 1;
-			return new Result() { A = n - a, B = n - b };
+			return new Result { A = n - a, B = n - b };
         }
 
         private static void PrintResult(Result result)
@@ -59,7 +58,7 @@ namespace TasksApp.Tasks
 
 			public override string ToString()
 			{
-				return String.Format("{0} {1}", A, B);
+				return $"{A} {B}";
 			}
 		}
     }

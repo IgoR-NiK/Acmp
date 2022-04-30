@@ -11,7 +11,7 @@ namespace TasksApp.Tasks
     /// а Катя сделала в два раза больше журавликов, чем Петя и Сережа вместе?
     /// 
     /// Входные данные
-    /// В единственной строке входного файла INPUT.TXT записано одно натуральное число S – общее количество сделанных журавликов (S < 10^6).
+    /// В единственной строке входного файла INPUT.TXT записано одно натуральное число S – общее количество сделанных журавликов (S &lt; 10^6).
     /// 
     /// Выходные данные
     /// В единственную строку выходного файла OUTPUT.TXT нужно вывести три числа, разделенных пробелами – количество журавликов, 
@@ -21,8 +21,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {            
-            int s;
-            GetInputData(out s);
+            GetInputData(out var s);
 
             var result = Solve(s);
 
@@ -37,7 +36,7 @@ namespace TasksApp.Tasks
         public static Result Solve(int s)
         {
             var temp = s / 6;
-            return new Result() { a = temp, b = 4 * temp, c = temp };
+            return new Result { A = temp, B = 4 * temp, C = temp };
         }
 
         private static void PrintResult(Result result)
@@ -47,13 +46,13 @@ namespace TasksApp.Tasks
 
         public struct Result
         {
-            public int a;
-            public int b;
-            public int c;
+            public int A;
+            public int B;
+            public int C;
 
             public override string ToString()
             {
-                return string.Format("{0} {1} {2}", a, b, c);
+                return $"{A} {B} {C}";
             }
         }
     }

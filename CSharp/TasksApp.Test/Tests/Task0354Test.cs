@@ -7,11 +7,11 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0354Test
     {
-        private void CheckTest(int n, int[] result)
+        private static void CheckTest(int n, int[] result)
         {
-            var test = Task0354.Solve(n);
+            var test = Task0354.Solve(n).ToArray();
             
-            Assert.AreEqual(result.Length, test.Count());
+            Assert.AreEqual(result.Length, test.Length);
 
             var i = 0;
             foreach (var t in test)

@@ -26,12 +26,11 @@ namespace TasksApp.Tasks
     /// </summary>   
     public class Task0459
     {
-        static List<Node> Nodes = new List<Node>();
+        private static readonly List<Node> Nodes = new List<Node>();
 
         public static void Main()
         {
-            string input;
-            GetInputData(out input);
+            GetInputData(out var input);
 
             var result = Solve(input);
 
@@ -47,14 +46,13 @@ namespace TasksApp.Tasks
         {
             var startI = 0;
             var startJ = 0;
-            Node firstNode = GetNodeByCoordinates(startI, startJ);
 
             // Устанавливаем связи между квадратами, по которым можно идти  
             var i = 0;
             var j = 0;
             foreach (var ch in input)
             {        
-                Node foundNode = GetNodeByCoordinates(i, j);
+                var foundNode = GetNodeByCoordinates(i, j);
                 Node nextNode;
                 switch (ch)
                 {
@@ -118,8 +116,8 @@ namespace TasksApp.Tasks
             } while (CheckNodeDistanceFromCenter(finishI, finishJ, 0));
 
             // Восстановление пути
-            string output = "";
-            Node curNode = GetNodeByCoordinates(finishI, finishJ);
+            var output = "";
+            var curNode = GetNodeByCoordinates(finishI, finishJ);
             do
             {
                 if (curNode.NodeNorth != null && curNode.NodeNorth.DistanceFromCenter == curNode.DistanceFromCenter - 1)
@@ -162,7 +160,7 @@ namespace TasksApp.Tasks
                 }
             }
 
-            Node newNode = new Node(i, j);
+            var newNode = new Node(i, j);
             Nodes.Add(newNode);
 
             return newNode;
@@ -170,33 +168,33 @@ namespace TasksApp.Tasks
 
         private static void SetNodeDistanceFromCenter(int i, int j, int d)
         {
-            Node node = GetNodeByCoordinates(i, j);
+            var node = GetNodeByCoordinates(i, j);
             node.DistanceFromCenter = d;
         }
 
         private static bool CheckNodeDistanceFromCenter(int i, int j, int d)
         {
-            Node node = GetNodeByCoordinates(i, j);
+            var node = GetNodeByCoordinates(i, j);
             return node.DistanceFromCenter == d;
         }
 
         private static List<Node> GetNodesWithDistanceFromCenter(int d)
         {
-            List<Node> NodesWithDistanceFromCenter = new List<Node>();
+            var nodesWithDistanceFromCenter = new List<Node>();
 
             foreach (var node in Nodes)
             {
                 if (node.DistanceFromCenter == d)
                 {
-                    NodesWithDistanceFromCenter.Add(node);
+                    nodesWithDistanceFromCenter.Add(node);
                 }
             }
 
-            return NodesWithDistanceFromCenter;
+            return nodesWithDistanceFromCenter;
         }
     }
 
-    class Node
+    internal class Node
     {
         public int I { get; set; }
         public int J { get; set; }

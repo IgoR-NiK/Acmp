@@ -20,8 +20,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            string a, b, c;
-            GetInputData(out a, out b, out c);
+            GetInputData(out var a, out var b, out var c);
 
             var result = Solve(a, b, c);
 
@@ -30,11 +29,11 @@ namespace TasksApp.Tasks
 
         private static void GetInputData(out string a, out string b, out string c)
         {
-            var input = Console.ReadLine().Split();
+            var input = Console.ReadLine()?.Split();
 
-            a = input[0];
-            b = input[1];
-            c = input[2];
+            a = input?[0];
+            b = input?[1];
+            c = input?[2];
         }
 
         public static string Solve(string a, string b, string c)
@@ -49,7 +48,7 @@ namespace TasksApp.Tasks
         
         private static string Compare(string s1, string s2, string s3)
         {
-            string temp = Compare(s1, s2);
+            var temp = Compare(s1, s2);
             return Compare(temp, s3);
         }
 
@@ -61,10 +60,10 @@ namespace TasksApp.Tasks
             if (s1.Length < s2.Length)
                 return s2;
                         
-            for (int i = 0; i < s1.Length; i++)
+            for (var i = 0; i < s1.Length; i++)
             {
                 if (s1[i] > s2[i]) return s1;
-                else if (s1[i] < s2[i]) return s2;
+                if (s1[i] < s2[i]) return s2;
             }
 
             return s1;

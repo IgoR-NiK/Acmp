@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace TasksApp.Tasks
 {
@@ -71,36 +70,36 @@ namespace TasksApp.Tasks
 
         public static string Solve(int l1, int w1, int h1, int l2, int w2, int h2, int lc, int wc, int hc)
         {
-	        int MAXc, MINc, MAX1, MIN1, MAX2, MIN2;
+	        int maxC, minC, max1, min1, max2, min2;
 	        if (w1 < l1)
 	        {
-		        MAX1 = l1;
-		        MIN1 = w1;
+		        max1 = l1;
+		        min1 = w1;
 	        }
 	        else
 	        {
-		        MAX1 = w1;
-		        MIN1 = l1;
+		        max1 = w1;
+		        min1 = l1;
 	        }
 	        if (w2 < l2)
 	        {
-		        MAX2 = l2;
-		        MIN2 = w2;
+		        max2 = l2;
+		        min2 = w2;
 	        }
 	        else
 	        {
-		        MAX2 = w2;
-		        MIN2 = l2;
+		        max2 = w2;
+		        min2 = l2;
 	        }
 	        if (wc < lc)
 	        {
-		        MAXc = lc;
-		        MINc = wc;
+		        maxC = lc;
+		        minC = wc;
 	        }
 	        else
 	        {
-		        MAXc = wc;
-		        MINc = lc;
+		        maxC = wc;
+		        minC = lc;
 	        }
  
 	        if (h1 > hc || h2 > hc)
@@ -110,12 +109,12 @@ namespace TasksApp.Tasks
 	        
 	        if (h1 + h2 <= hc)
 	        {
-		        return MIN1 <= MINc && MAX1 <= MAXc && MIN2 <= MINc && MAX2 <= MAXc ? "YES" : "NO";
+		        return min1 <= minC && max1 <= maxC && min2 <= minC && max2 <= maxC ? "YES" : "NO";
 	        }
 
 
-	        return MIN1 + MIN2 <= MAXc && MAX1 <= MINc && MAX2 <= MINc ||
-	               MIN1 + MIN2 <= MINc && MAX1 <= MAXc && MAX2 <= MAXc
+	        return min1 + min2 <= maxC && max1 <= minC && max2 <= minC ||
+	               min1 + min2 <= minC && max1 <= maxC && max2 <= maxC
 		        ? "YES"
 		        : "NO";
         }

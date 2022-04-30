@@ -12,7 +12,7 @@ namespace TasksApp.Tasks
     /// Определите кратчайшее расстояние от оси OY до точки соударения шарика со стеной.
     ///  
     /// Входные данные
-	/// Во входном файле INPUT.TXT содержится три целых числа R, X и Y (-10 ≤ X ≤ 10, 0 ≤ Y < R ≤ 10), разделенных пробелами.
+	/// Во входном файле INPUT.TXT содержится три целых числа R, X и Y (-10 ≤ X ≤ 10, 0 ≤ Y &lt; R ≤ 10), разделенных пробелами.
     /// 
     /// Выходные данные
 	/// В выходной файл OUTPUT.TXT выведите расстояние по прямой линии от оси OY до точки удара шарика о стену с точностью не худшей,
@@ -31,11 +31,11 @@ namespace TasksApp.Tasks
 
 		private static void GetInputData(out double r, out double x, out double y)
 		{
-			var input = Console.ReadLine().Split();
+			var input = Console.ReadLine()?.Split();
 
-			r = double.Parse(input[0]);
-			x = double.Parse(input[1]);
-			y = double.Parse(input[2]);
+			double.TryParse(input?[0], out r);
+			double.TryParse(input?[1], out x);
+			double.TryParse(input?[2], out y);
 		}
 
 		public static double Solve(double r, double x, double y)

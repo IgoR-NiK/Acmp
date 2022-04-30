@@ -27,7 +27,6 @@ namespace TasksApp.Tasks
 
         private static void GetInputData(out string[] input)
         {		
-			var n = int.Parse(Console.ReadLine());
 			input = Console.ReadLine().Split();
         }
 

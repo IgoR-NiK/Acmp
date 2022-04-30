@@ -18,9 +18,8 @@ namespace TasksApp.Tasks
     public static class Task0061 
     {
         public static void Main()
-        {            
-            int[] a, b;
-            GetInputData(out a, out b);
+        {
+            GetInputData(out var a, out var b);
 
             var result = Solve(a, b);
 
@@ -52,7 +51,7 @@ namespace TasksApp.Tasks
                 sumB += b[i];
             }
 
-            return sumA > sumB ? "1" : (sumA < sumB ? "2" : "DRAW");
+            return sumA > sumB ? "1" : sumA < sumB ? "2" : "DRAW";
         }
 
         private static void PrintResult(string result)

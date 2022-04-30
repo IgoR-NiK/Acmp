@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0499Test
     {
-        private void CheckTest(int k, int w, int a1, int b1, int a2, int b2, int a3, int b3, string result)
+        private static void CheckTest(int k, int w, int a1, int b1, int a2, int b2, int a3, int b3, string result)
         {
             var actual = Task0499.Solve(k, w, a1, b1, a2, b2, a3, b3);
             

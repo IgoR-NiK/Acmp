@@ -16,7 +16,7 @@ namespace TasksApp.Tasks
 	/// на 1 сантиметр за ночь. Следует также учесть, что до 0-го дня неформал с горя подстригся наголо и к 0-му дню длина его волос составляла 1 сантиметр.
     /// 
     /// Входные данные
-	/// В первой строке входного файла INPUT.TXT записано целое число N (0 < N ≤ 100). 
+	/// В первой строке входного файла INPUT.TXT записано целое число N (0 &lt; N ≤ 100). 
 	/// Во второй строке через пробел заданы N натуральных чисел, не превосходящих 100, соответствующие стоимости C[i] 1 сантиметра волос за каждый i-й день.
     /// 
     /// Выходные данные
@@ -26,8 +26,7 @@ namespace TasksApp.Tasks
 	{
 		public static void Main()
 		{
-			int[] prices;
-			GetInputData(out prices);
+			GetInputData(out var prices);
 
 			var result = Solve(prices);
 
@@ -36,13 +35,13 @@ namespace TasksApp.Tasks
 
 		private static void GetInputData(out int[] prices)
 		{
-			var n = int.Parse(Console.ReadLine());
-			var input = Console.ReadLine().Split();
+			int.TryParse(Console.ReadLine(), out var n);
+			var input = Console.ReadLine()?.Split();
 
 			prices = new int[n];
 			for (var i = 0; i < n; i++)
 			{
-				prices[i] = int.Parse(input[i]);
+				int.TryParse(input?[i], out prices[i]);
 			}
 		}
 

@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0035Test
     {
-        private void CheckTest(int[] n, int[] m, long[] result)
+        private static void CheckTest(int[] n, int[] m, long[] result)
         {
             var test = Task0035.Solve(n, m);
             for (var i = 0; i < n.Length; i++)

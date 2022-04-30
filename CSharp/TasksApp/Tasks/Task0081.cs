@@ -21,9 +21,8 @@ namespace TasksApp.Tasks
     public static class Task0081 
     {
         public static void Main()
-        {            
-            int[] array;
-            GetInputData(out array);
+        {
+            GetInputData(out var array);
 
             var result = Solve(array);
 
@@ -44,7 +43,7 @@ namespace TasksApp.Tasks
 
         public static Result Solve(int[] array)
         {
-            return new Result() { Max = array.Max(), Min = array.Min() };
+            return new Result { Max = array.Max(), Min = array.Min() };
         }
 
         private static void PrintResult(Result result)
@@ -59,7 +58,7 @@ namespace TasksApp.Tasks
 
             public override string ToString()
             {
-                return String.Format("{0} {1}", Min, Max);
+                return $"{Min} {Max}";
             }
         }
     }

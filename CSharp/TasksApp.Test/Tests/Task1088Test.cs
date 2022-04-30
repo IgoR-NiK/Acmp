@@ -7,7 +7,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task1088Test
     {
-        private void CheckTest(string point1, string point2, string[] results)
+        private static void CheckTest(string point1, string point2, string[] results)
         {
             var actual = Task1088.Solve(point1, point2);
 			Assert.AreEqual(results.Length, actual.Length);

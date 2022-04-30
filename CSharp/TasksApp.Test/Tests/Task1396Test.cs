@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task1396Test
     {
-        private void CheckTest(int[] input, int[] result)
+        private static void CheckTest(int[] input, int[] result)
         {
             var actual = Task1396.Solve(input);
             

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace TasksApp.Tasks
 {
@@ -55,22 +54,20 @@ namespace TasksApp.Tasks
             {
                 return "Boxes are equal";
             }
-            else if(orderedSidesBox1[0] <= orderedSidesBox2[0]
-                && orderedSidesBox1[1] <= orderedSidesBox2[1]
-                && orderedSidesBox1[2] <= orderedSidesBox2[2])
+
+            if(orderedSidesBox1[0] <= orderedSidesBox2[0]
+               && orderedSidesBox1[1] <= orderedSidesBox2[1]
+               && orderedSidesBox1[2] <= orderedSidesBox2[2])
             {
                 return "The first box is smaller than the second one";
             }
-            else if (orderedSidesBox1[0] >= orderedSidesBox2[0]
+            if (orderedSidesBox1[0] >= orderedSidesBox2[0]
                 && orderedSidesBox1[1] >= orderedSidesBox2[1]
                 && orderedSidesBox1[2] >= orderedSidesBox2[2])
             {
                 return "The first box is larger than the second one";
             }
-            else
-            {
-                return "Boxes are incomparable";
-            }
+            return "Boxes are incomparable";
         }
 
         private static void PrintResult(string result)

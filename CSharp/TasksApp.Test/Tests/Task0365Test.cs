@@ -7,14 +7,14 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0365Test
     {
-        private void CheckTest(int n, List<List<int>> output)
+        private static void CheckTest(int n, List<List<int>> output)
         {
             var test = Task0365.Solve(1, n);
 
             Assert.AreEqual(test.Count, output.Count);
 
-            var testHash = calculateHash(test);
-            var outputHash = calculateHash(output);
+            var testHash = test.ConvertAll(Hash);
+            var outputHash = output.ConvertAll(Hash);
 
             foreach (var e in testHash)
             {
@@ -22,12 +22,7 @@ namespace TasksApp.Test.Tests
             }
         }
 
-        private List<long> calculateHash(List<List<int>> test)
-        {
-            return test.ConvertAll(x => Hash(x));
-        }
-
-        private long Hash(List<int> list)
+        private static long Hash(List<int> list)
         {
             long sum = 0;
             long mul = 1;
@@ -38,7 +33,7 @@ namespace TasksApp.Test.Tests
                 mul *= e;
             }
 
-            return mul % sum;
+            return sum != 0 ? mul % sum : 0;
         }
 
         [Test]

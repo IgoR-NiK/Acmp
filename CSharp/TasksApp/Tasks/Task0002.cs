@@ -18,8 +18,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int n;
-            GetInputData(out n);
+            GetInputData(out var n);
 
             var result = Solve(n);
 
@@ -34,7 +33,7 @@ namespace TasksApp.Tasks
         public static long Solve(int n)
         {
             long sum = 0;
-            int sign = (n > 0) ? -1 : 1;
+            var sign = n > 0 ? -1 : 1;
             while (n != 1)
             {
                 sum += n;

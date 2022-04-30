@@ -11,7 +11,7 @@ namespace TasksApp.Tasks
 	/// Даны два целых числа A и B. Требуется найти их целую часть от их частного.
 	/// 
 	/// Входные данные
-	/// Во входном файле INPUT.TXT записаны целые числа A и B по одному в строке (0 ≤ A ≤ 10^100, 0 < B ≤ 10000).
+	/// Во входном файле INPUT.TXT записаны целые числа A и B по одному в строке (0 ≤ A ≤ 10^100, 0 %lt; B ≤ 10000).
 	/// 
 	/// Выходные данные
 	/// В выходной файл OUTPUT.TXT выведите единственное число без лидирующих нулей: A div B.
@@ -46,48 +46,48 @@ namespace TasksApp.Tasks
 		public class BigInteger
 		{
 			// Массив, который хранит большое число
-			private List<int> arr = new List<int>();
+			private readonly List<int> _arr = new List<int>();
 
 			// Количество цифр в одном элементе массива    
-			private static int order = 8;
+			private static readonly int Order = 8;
 
 			public BigInteger() { }
 			public BigInteger(string s)
 			{
-				int whole = s.Length / order, rest = s.Length % order;
+				int whole = s.Length / Order, rest = s.Length % Order;
 
-				for (int i = 1; i <= whole; i++)
-					arr.Add(int.Parse(s.Substring(s.Length - order * i, order)));
+				for (var i = 1; i <= whole; i++)
+					_arr.Add(int.Parse(s.Substring(s.Length - Order * i, Order)));
 
 				if (rest != 0)
-					arr.Add(int.Parse(s.Substring(0, rest)));
+					_arr.Add(int.Parse(s.Substring(0, rest)));
 			}
 
 			// Деление большого неотрицательного числа на короткое неотрицательное число
-			public static BigInteger operator /(BigInteger A, int B)
+			public static BigInteger operator /(BigInteger a, int b)
 			{
-				BigInteger C = new BigInteger();
+				var c = new BigInteger();
 
-				int r = 0, myBase = (int)Math.Pow(10, order);
-				for (int i = A.arr.Count - 1; i >= 0; i--)
+				int r = 0, myBase = (int)Math.Pow(10, Order);
+				for (var i = a._arr.Count - 1; i >= 0; i--)
 				{
-					long temp = (long)r * (long)myBase + A.arr[i];
-					C.arr.Insert(0, (int)(temp / B));
-					r = (int)(temp % B);
+					var temp = r * (long)myBase + a._arr[i];
+					c._arr.Insert(0, (int)(temp / b));
+					r = (int)(temp % b);
 				}
-				Normalize(C.arr);
+				Normalize(c._arr);
 
-				return C;
+				return c;
 			}
 
 			// Вывод большого числа
 			public override string ToString()
 			{
-				StringBuilder ans = new StringBuilder();
+				var ans = new StringBuilder();
 
-				ans.Append(arr[arr.Count - 1].ToString());
-				for (int i = arr.Count - 2; i >= 0; i--)
-					ans.Append(arr[i].ToString().PadLeft(order, '0'));
+				ans.Append(_arr[_arr.Count - 1].ToString());
+				for (var i = _arr.Count - 2; i >= 0; i--)
+					ans.Append(_arr[i].ToString().PadLeft(Order, '0'));
 
 				return ans.ToString();
 			}

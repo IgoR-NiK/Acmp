@@ -108,7 +108,7 @@ namespace TasksApp.Tasks
             }
         }
 
-        enum Direction
+        private enum Direction
         {
             Up,
             Right,

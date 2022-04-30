@@ -23,9 +23,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            uint n;
-            byte[] p;
-            GetInputData(out n, out p);
+            GetInputData(out var n, out var p);
 
             var result = Solve(n, p);
 
@@ -46,8 +44,8 @@ namespace TasksApp.Tasks
 
         public static long Solve(uint n, byte[] p)
         {
-            const int Max = 200000;
-            var lightbulb = new Light[Max];
+            const int max = 200000;
+            var lightbulb = new Light[max];
 
             var c = new byte[51];
             for (var i = 0; i < p.Length; i++)
@@ -67,7 +65,7 @@ namespace TasksApp.Tasks
 
                     for (int k = 0, l = currentCount - 1; k < l; k++)
                     {
-                        var q = NOK(j, lightbulb[k].Number);
+                        var q = Nok(j, lightbulb[k].Number);
 
                         if (q <= n)
                         {
@@ -105,7 +103,7 @@ namespace TasksApp.Tasks
             long sum = 0;
 
             for (var i = 0; i < currentCount; i++)
-                sum += (n / lightbulb[i].Number) * lightbulb[i].N;
+                sum += n / lightbulb[i].Number * lightbulb[i].N;
 
             if (c[1] == 1)
                 sum = n - sum;
@@ -119,18 +117,18 @@ namespace TasksApp.Tasks
         }
 
 
-        struct Light
+        private struct Light
         {
             public uint Number;
             public int N;
         }
 
-        private static ulong NOK(ulong a, ulong b)
+        private static ulong Nok(ulong a, ulong b)
         {
-            return (b / NOD(a, b)) * a;
+            return b / Nod(a, b) * a;
         }
 
-        private static ulong NOD(ulong a, ulong b)
+        private static ulong Nod(ulong a, ulong b)
         {
             while (b > 0)
             {

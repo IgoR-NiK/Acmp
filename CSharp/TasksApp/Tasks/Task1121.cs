@@ -46,7 +46,7 @@ namespace TasksApp.Tasks
 
         public static string Solve(int x1, int y1, int x2, int y2)
         {
-	        return Math.Abs(x1 - x2) == Math.Abs(y1 - y2) || (x1 == x2) || (y1 == y2) ? "YES" : "NO";
+	        return Math.Abs(x1 - x2) == Math.Abs(y1 - y2) || x1 == x2 || y1 == y2 ? "YES" : "NO";
         }
 
         private static void PrintResult(string result)

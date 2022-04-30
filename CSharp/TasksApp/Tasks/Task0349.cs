@@ -17,7 +17,7 @@ namespace TasksApp.Tasks
     /// </summary>
     public static class Task0349
     {
-        private static readonly List<int> _primeNumbers = new List<int> { 2 };
+        private static readonly List<int> PrimeNumbers = new List<int> { 2 };
 
         public static void Main()
         {
@@ -54,43 +54,32 @@ namespace TasksApp.Tasks
 
         private static void PrintResult(IEnumerable<int> result)
         {
-            if (!result.Any())
-            {
-                Console.Write("Absent");
-                return;                
-            }
+            var isEmpty = true;
 
             foreach (var res in result)
             {
                 Console.WriteLine(res);
+                isEmpty = false;
+            }
+
+            if (isEmpty)
+            {
+                Console.Write("Absent");
             }
         }
 
         private static bool IsPrime(int number)
         {
-            for (var j = 0; _primeNumbers[j] * _primeNumbers[j] <= number; j++)
+            for (var j = 0; PrimeNumbers[j] * PrimeNumbers[j] <= number; j++)
             {
-                if (number % _primeNumbers[j] == 0)
+                if (number % PrimeNumbers[j] == 0)
                 {
                     return false;
                 }
             }
 
-            _primeNumbers.Add(number);
+            PrimeNumbers.Add(number);
             return true;
-        }
-
-        private static bool Any<T>(this IEnumerable<T> source)
-        {
-            if (source == null)
-            {
-                return false;
-            }
-
-            using (var enumerator = source.GetEnumerator())
-            {
-                return enumerator.MoveNext();
-            }
         }
     }
 }

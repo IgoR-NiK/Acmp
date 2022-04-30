@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0040Test
     {
-        private void CheckTest(int n, string result)
+        private static void CheckTest(int n, string result)
         {			
 			var bigInteger = new Task0040.BigInteger(result);
             var test = Task0040.Solve(n);

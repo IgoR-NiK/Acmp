@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0082Test
     {
-        private void CheckTest(int[] arrayN, int[] arrayM, int[] result)
+        private static void CheckTest(int[] arrayN, int[] arrayM, int[] result)
         {
             var resultTest = Task0082.Solve(arrayN, arrayM);
 

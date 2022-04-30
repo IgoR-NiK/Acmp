@@ -24,9 +24,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int w, h, n;
-            Rectangle[] rectangles;
-            GetInputData(out w, out h, out n, out rectangles);
+            GetInputData(out var w, out var h, out var n, out var rectangles);
 
             var result = Solve(w, h, n, rectangles);
 
@@ -46,10 +44,10 @@ namespace TasksApp.Tasks
             for (var i = 0; i < n; i++)
             {
                 input = Console.ReadLine().Split();
-                rectangles[i] = new Rectangle()
+                rectangles[i] = new Rectangle
                 {
-                    LeftUp = new Point() { X = int.Parse(input[0]), Y = int.Parse(input[1]) },
-                    RightDown = new Point() { X = int.Parse(input[2]), Y = int.Parse(input[3]) }
+                    LeftUp = new Point { X = int.Parse(input[0]), Y = int.Parse(input[1]) },
+                    RightDown = new Point { X = int.Parse(input[2]), Y = int.Parse(input[3]) }
                 };
             }
         }

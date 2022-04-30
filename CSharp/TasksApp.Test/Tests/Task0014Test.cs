@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0014Test
     {
-        private void CheckTest(int a, int b, int output)
+        private static void CheckTest(int a, int b, int output)
         {
             var test = Task0014.Solve(a, b);
             Assert.AreEqual(test, output);

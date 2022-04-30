@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0009Test
     {
-        private void CheckTest(int n, int[] array, Result output)
+        private static void CheckTest(int n, int[] array, Result output)
         {
             var test = Task0009.Solve(n, array);
             Assert.AreEqual(test.Sum, output.Sum);

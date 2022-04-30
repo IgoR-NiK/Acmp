@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task0340Test
     {
-        private void CheckTest(Task0340.Box box1, Task0340.Box box2, string result)
+        private static void CheckTest(Task0340.Box box1, Task0340.Box box2, string result)
         {
             var actual = Task0340.Solve(box1, box2);
             

@@ -21,8 +21,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int s, p;
-            GetInputData(out s, out p);
+            GetInputData(out var s, out var p);
 
             var result = Solve(s, p);
 
@@ -44,7 +43,7 @@ namespace TasksApp.Tasks
                 {
                     if (x * y == p && x + y == s)
                     {
-                        return new Result() { X = x > y ? y : x, Y = x > y ? x : y };
+                        return new Result { X = x > y ? y : x, Y = x > y ? x : y };
                     }
                 }
             }
@@ -64,7 +63,7 @@ namespace TasksApp.Tasks
 
             public override string ToString()
             {
-                return String.Format("{0} {1}", X > Y ? Y : X, X > Y ? X : Y);
+                return $"{(X > Y ? Y : X)} {(X > Y ? X : Y)}";
             }
         }
     }

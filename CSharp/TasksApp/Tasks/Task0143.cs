@@ -46,76 +46,76 @@ namespace TasksApp.Tasks
 		public class BigInteger
 		{
 			// Массив, который хранит большое числа
-			private List<int> arr = new List<int>();
+			private readonly List<int> _arr = new List<int>();
 
 			// Количество цифр в одном элементе массива    
-			private static int order = 8;
+			private static readonly int Order = 8;
 
 			// Знак числа. Число неотрицательное, если sign = true и отрицательное, если sign = false
-			private bool sign = true;
+			private bool _sign = true;
 
 			public BigInteger() { }
 			public BigInteger(string s)
 			{
-				int whole = s.Length / order, rest = s.Length % order;
+				int whole = s.Length / Order, rest = s.Length % Order;
 
-				for (int i = 1; i <= whole; i++)
-					arr.Add(int.Parse(s.Substring(s.Length - order * i, order)));
+				for (var i = 1; i <= whole; i++)
+					_arr.Add(int.Parse(s.Substring(s.Length - Order * i, Order)));
 
 				if (rest != 0)
-					arr.Add(int.Parse(s.Substring(0, rest)));
+					_arr.Add(int.Parse(s.Substring(0, rest)));
 
-				Normalize(arr);
+				Normalize(_arr);
 			}
 
 			// Вычитание двух больших неотрицательных чисел
-			public static BigInteger operator -(BigInteger A, BigInteger B)
+			public static BigInteger operator -(BigInteger a, BigInteger b)
 			{
-				if (A.CompareTo(B) == -1)
+				if (a.CompareTo(b) == -1)
 				{
-					BigInteger temp = B - A;
+					var temp = b - a;
 					temp.ChangeSign(false);
 					return temp;
 				}
 
-				BigInteger C = new BigInteger();
+				var c = new BigInteger();
 
-				int k = 0, myBase = (int)Math.Pow(10, order);
-				for (int i = 0; i < A.arr.Count; i++)
+				int k = 0, myBase = (int)Math.Pow(10, Order);
+				for (var i = 0; i < a._arr.Count; i++)
 				{
-					int tempB = (B.arr.Count > i) ? B.arr[i] : 0;
+					var tempB = b._arr.Count > i ? b._arr[i] : 0;
 
-					C.arr.Add(A.arr[i] - tempB - k);
-					if (C.arr[i] < 0)
+					c._arr.Add(a._arr[i] - tempB - k);
+					if (c._arr[i] < 0)
 					{
 						k = 1;
-						C.arr[i] += myBase;
+						c._arr[i] += myBase;
 					}
 					else
 					{
 						k = 0;
 					}
 				}
-				Normalize(C.arr);
+				Normalize(c._arr);
 
-				return C;
+				return c;
 			}
 
 			// Сравнение двух больших неотрицательных чисел        
 			public int CompareTo(BigInteger other)
 			{
-				int ans = 0;
-				if (this.arr.Count == other.arr.Count)
+				var ans = 0;
+				if (_arr.Count == other._arr.Count)
 				{
-					for (int i = this.arr.Count - 1; i >= 0; i--)
+					for (var i = _arr.Count - 1; i >= 0; i--)
 					{
-						if (this.arr[i] > other.arr[i])
+						if (_arr[i] > other._arr[i])
 						{
 							ans = 1;
 							break;
 						}
 
-						if (this.arr[i] < other.arr[i])
+						if (_arr[i] < other._arr[i])
 						{
 							ans = -1;
 							break;
@@ -124,7 +124,7 @@ namespace TasksApp.Tasks
 				}
 				else
 				{
-					ans = (this.arr.Count > other.arr.Count) ? 1 : -1;
+					ans = _arr.Count > other._arr.Count ? 1 : -1;
 				}
 				return ans;
 			}
@@ -132,12 +132,12 @@ namespace TasksApp.Tasks
 			// Вывод большого числа
 			public override string ToString()
 			{
-				StringBuilder ans = new StringBuilder();
+				var ans = new StringBuilder();
 
-				if (!sign) ans.Append('-');
-				ans.Append(arr[arr.Count - 1].ToString());
-				for (int i = arr.Count - 2; i >= 0; i--)
-					ans.Append(arr[i].ToString().PadLeft(order, '0'));
+				if (!_sign) ans.Append('-');
+				ans.Append(_arr[_arr.Count - 1].ToString());
+				for (var i = _arr.Count - 2; i >= 0; i--)
+					ans.Append(_arr[i].ToString().PadLeft(Order, '0'));
 
 				return ans.ToString();
 			}
@@ -152,7 +152,7 @@ namespace TasksApp.Tasks
 			// Смена знака
 			public void ChangeSign(bool flag)
 			{
-				sign = flag;
+				_sign = flag;
 			}
 		}
 	}

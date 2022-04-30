@@ -40,7 +40,7 @@ namespace TasksApp.Tasks
         {
 			for (var i = 0; i < 14; i++)
 			{
-				if (Math.Pow(2, i) == n)
+				if ((int)Math.Pow(2, i) == n)
 				{
 					return "YES";
 				}

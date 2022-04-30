@@ -24,8 +24,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int a, b, c;
-            GetInputData(out a, out b, out c);
+            GetInputData(out var a, out var b, out var c);
 
             var result = Solve(a, b, c);
 
@@ -42,7 +41,7 @@ namespace TasksApp.Tasks
 
         public static string Solve(int a, int b, int c)
         {
-            return (a * b == c) ? "YES" : "NO";
+            return a * b == c ? "YES" : "NO";
         }
 
         private static void PrintResult(string result)

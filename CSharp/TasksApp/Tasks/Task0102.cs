@@ -21,8 +21,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            Point[] points;
-            GetInputData(out points);
+            GetInputData(out var points);
 
             var result = Solve(points);
 
@@ -36,7 +35,7 @@ namespace TasksApp.Tasks
             for (var i = 0; i < countPoints; i++)
             {
                 var input = Console.ReadLine().Split();
-                points[i] = new Point() { X = int.Parse(input[0]), Y = int.Parse(input[1]) };
+                points[i] = new Point { X = int.Parse(input[0]), Y = int.Parse(input[1]) };
             }
         }
 
@@ -47,7 +46,7 @@ namespace TasksApp.Tasks
             var s3 = GetArea(points[0], points[2], points[3]);
             var s4 = GetArea(points[1], points[2], points[3]);
 
-            return s1 == s2 + s3 + s4 ? "In" : "Out";
+            return Math.Abs(s1 - (s2 + s3 + s4)) < 0.00000000001 ? "In" : "Out";
         }
 
         private static void PrintResult(string result)
@@ -55,13 +54,13 @@ namespace TasksApp.Tasks
             Console.WriteLine(result);
         }
 
-        private static double GetArea(Point A, Point B, Point C)
+        private static double GetArea(Point a, Point b, Point c)
         {
-            var a = Math.Sqrt(Math.Pow(B.X - A.X, 2) + Math.Pow(B.Y - A.Y, 2));
-            var b = Math.Sqrt(Math.Pow(C.X - B.X, 2) + Math.Pow(C.Y - B.Y, 2));
-            var c = Math.Sqrt(Math.Pow(C.X - A.X, 2) + Math.Pow(C.Y - A.Y, 2));
-            var p = (a + b + c) / 2;
-            return Math.Round(Math.Sqrt(p * (p - a) * (p - b) * (p - c)), 3);
+            var line1 = Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
+            var line2 = Math.Sqrt(Math.Pow(c.X - b.X, 2) + Math.Pow(c.Y - b.Y, 2));
+            var line3 = Math.Sqrt(Math.Pow(c.X - a.X, 2) + Math.Pow(c.Y - a.Y, 2));
+            var p = (line1 + line2 + line3) / 2;
+            return Math.Round(Math.Sqrt(p * (p - line1) * (p - line2) * (p - line3)), 3);
         }
 
         public struct Point

@@ -18,8 +18,7 @@ namespace TasksApp.Tasks
 	{
 		public static void Main()
 		{
-			string input;
-			GetInputData(out input);
+			GetInputData(out var input);
 
 			var result = Solve(input);
 
@@ -33,7 +32,7 @@ namespace TasksApp.Tasks
 
 		public static int Solve(string input)
 		{
-            int max = 0;
+            var max = 0;
             for (int i = 0, current = 0; i < input.Length; i++)
             {
                 current = input[i] == '0' ? current + 1 : 0;

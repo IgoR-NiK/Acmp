@@ -31,8 +31,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int k;
-            GetInputData(out k);
+            GetInputData(out var k);
 
             var result = Solve(k);
 
@@ -41,12 +40,12 @@ namespace TasksApp.Tasks
 
         private static void GetInputData(out int k)
         {
-            k = int.Parse(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out k);
         }
 
         public static string Solve(int k)
         {
-            return String.Format("{0}{1}{2}", k, 9, 9 - k);
+            return $"{k}{9}{9 - k}";
         }
 
         private static void PrintResult(string result)

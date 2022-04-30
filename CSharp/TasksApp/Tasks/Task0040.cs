@@ -11,7 +11,7 @@ namespace TasksApp.Tasks
 	/// Необходимо вычислить значение 2^n.
     /// 
     /// Входные данные
-	/// В единственной строке входного файла INPUT.TXT записано натуральное число n (0 < n < 1000).
+	/// В единственной строке входного файла INPUT.TXT записано натуральное число n (0 &lt; n &lt; 1000).
     /// 
     /// Выходные данные
 	/// В единственную строку выходного файла OUTPUT.TXT нужно вывести значение 2^n.
@@ -20,8 +20,7 @@ namespace TasksApp.Tasks
 	{
 		public static void Main()
 		{
-			int n;
-			GetInputData(out n);
+			GetInputData(out var n);
 
 			var result = Solve(n);
 
@@ -35,7 +34,7 @@ namespace TasksApp.Tasks
 
 		public static BigInteger Solve(int n)
 		{
-			BigInteger a = new BigInteger("2");
+			var a = new BigInteger("2");
 			return a.Pow(n);
 		}
 
@@ -47,97 +46,97 @@ namespace TasksApp.Tasks
 		public class BigInteger
 		{
 			// Массив, который хранит большое число
-			private List<int> arr = new List<int>();
+			private readonly List<int> _arr = new List<int>();
 
 			// Количество цифр в одном элементе массива    
-			private static int order = 8;
+			private static readonly int Order = 8;
 
 			public BigInteger() { }
 			public BigInteger(string s)
 			{
-				int whole = s.Length / order, rest = s.Length % order;
+				int whole = s.Length / Order, rest = s.Length % Order;
 
-				for (int i = 1; i <= whole; i++)
-					arr.Add(int.Parse(s.Substring(s.Length - order * i, order)));
+				for (var i = 1; i <= whole; i++)
+					_arr.Add(int.Parse(s.Substring(s.Length - Order * i, Order)));
 
 				if (rest != 0)
-					arr.Add(int.Parse(s.Substring(0, rest)));
+					_arr.Add(int.Parse(s.Substring(0, rest)));
 			}
 
 			public BigInteger(List<int> arr)
 			{
-				this.arr = arr;
+				_arr = arr;
 			}
 
 			// Сложение двух больших неотрицательных чисел
-			public static BigInteger operator +(BigInteger A, BigInteger B)
+			public static BigInteger operator +(BigInteger a, BigInteger b)
 			{
-				BigInteger C = new BigInteger();
+				var c = new BigInteger();
 
-				int max = Math.Max(A.arr.Count, B.arr.Count), k = 0, myBase = (int)Math.Pow(10, order);
-				for (int i = 0; i < max; i++)
+				int max = Math.Max(a._arr.Count, b._arr.Count), k = 0, myBase = (int)Math.Pow(10, Order);
+				for (var i = 0; i < max; i++)
 				{
-					int tempA = (A.arr.Count > i) ? A.arr[i] : 0;
-					int tempB = (B.arr.Count > i) ? B.arr[i] : 0;
+					var tempA = a._arr.Count > i ? a._arr[i] : 0;
+					var tempB = b._arr.Count > i ? b._arr[i] : 0;
 
-					C.arr.Add(tempA + tempB + k);
-					if (C.arr[i] >= myBase)
+					c._arr.Add(tempA + tempB + k);
+					if (c._arr[i] >= myBase)
 					{
 						k = 1;
-						C.arr[i] -= myBase;
+						c._arr[i] -= myBase;
 					}
 					else
 					{
 						k = 0;
 					}
 				}
-				if (k == 1) C.arr.Add(k);
+				if (k == 1) c._arr.Add(k);
 
-				return C;
+				return c;
 			}
 
 			// Умножение большого неотрицательного числа на короткое неотрицательное число
-			public static BigInteger operator *(BigInteger A, int B)
+			public static BigInteger operator *(BigInteger a, int b)
 			{
-				BigInteger C = new BigInteger();
+				var c = new BigInteger();
 
-				int k = 0, myBase = (int)Math.Pow(10, order);
-				for (int i = 0; i < A.arr.Count; i++)
+				int k = 0, myBase = (int)Math.Pow(10, Order);
+				for (var i = 0; i < a._arr.Count; i++)
 				{
-					long temp = (long)A.arr[i] * (long)B + k;
-					C.arr.Add((int)(temp % myBase));
+					var temp = a._arr[i] * (long)b + k;
+					c._arr.Add((int)(temp % myBase));
 					k = (int)(temp / myBase);
 				}
-				C.arr.Add(k);
-				Normalize(C.arr);
+				c._arr.Add(k);
+				Normalize(c._arr);
 
-				return C;
+				return c;
 			}
 
 			// Умножение большого неотрицательного числа на большое неотрицательное число
-			public static BigInteger operator *(BigInteger A, BigInteger B)
+			public static BigInteger operator *(BigInteger a, BigInteger b)
 			{
-				BigInteger C = new BigInteger("0");
+				var c = new BigInteger("0");
 
-				for (int i = 0; i < A.arr.Count; i++)
+				for (var i = 0; i < a._arr.Count; i++)
 				{
-					BigInteger temp = B * A.arr[i];
-					if (temp.arr[temp.arr.Count - 1] != 0)
+					var temp = b * a._arr[i];
+					if (temp._arr[temp._arr.Count - 1] != 0)
 					{
-						for (int j = 0; j < i; j++)
-							temp.arr.Insert(0, 0);
-						C = C + temp;
+						for (var j = 0; j < i; j++)
+							temp._arr.Insert(0, 0);
+						c = c + temp;
 					}
 				}
 
-				return C;
+				return c;
 			}
 
 			// Возведение в степень
 			public BigInteger Pow(int k)
 			{
-				BigInteger a = new BigInteger(arr);
-				BigInteger b = new BigInteger("1");
+				var a = new BigInteger(_arr);
+				var b = new BigInteger("1");
 
 				while (k > 0)
 				{
@@ -159,11 +158,11 @@ namespace TasksApp.Tasks
 			// Вывод большого числа
 			public override string ToString()
 			{
-				StringBuilder ans = new StringBuilder();
+				var ans = new StringBuilder();
 
-				ans.Append(arr[arr.Count - 1].ToString());
-				for (int i = arr.Count - 2; i >= 0; i--)
-					ans.Append(arr[i].ToString().PadLeft(order, '0'));
+				ans.Append(_arr[_arr.Count - 1].ToString());
+				for (var i = _arr.Count - 2; i >= 0; i--)
+					ans.Append(_arr[i].ToString().PadLeft(Order, '0'));
 
 				return ans.ToString();
 			}
@@ -178,26 +177,25 @@ namespace TasksApp.Tasks
 			// Сравнение двух больших чисел
 			public int CompareTo(BigInteger another)
 			{
-				if (this.arr.Count > another.arr.Count)
+				if (_arr.Count > another._arr.Count)
 				{
 					return 1;
 				}
-				else if (this.arr.Count < another.arr.Count)
+
+				if (_arr.Count < another._arr.Count)
 				{
 					return -1;
 				}
-				else
+				for (var i = 0; i < _arr.Count; i++)
 				{
-					for (var i = 0; i < arr.Count; i++)
+					if (_arr[i] > another._arr[i])
 					{
-						if (arr[i] > another.arr[i])
-						{
-							return 1;
-						}
-						else if (arr[i] < another.arr[i])
-						{
-							return -1;
-						}
+						return 1;
+					}
+
+					if (_arr[i] < another._arr[i])
+					{
+						return -1;
 					}
 				}
 

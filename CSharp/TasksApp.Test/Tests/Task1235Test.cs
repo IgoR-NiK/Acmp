@@ -6,7 +6,7 @@ namespace TasksApp.Test.Tests
     [TestFixture]
     public class Task1235Test
     {
-        private void CheckTest(int[,] numbers, int[,] result)
+        private static void CheckTest(int[,] numbers, int[,] result)
         {
             var actual = Task1235.Solve(numbers);
             

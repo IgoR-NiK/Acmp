@@ -99,7 +99,7 @@ namespace TasksApp.Tasks
 					if (_powers[i] == 0)
 						break;
 
-					if (_powers[i] == 1)
+					if ((int)_powers[i] == 1)
 					{
 						for (var j = i; j < _powers.Length; j++)
 							_powers[j] = 0;

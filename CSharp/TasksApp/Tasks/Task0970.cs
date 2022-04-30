@@ -24,8 +24,7 @@ namespace TasksApp.Tasks
 	{
 		public static void Main()
 		{
-			int a1, a2, a3;
-			GetInputData(out a1, out a2, out a3);
+			GetInputData(out var a1, out var a2, out var a3);
 
 			var result = Solve(a1, a2, a3);
 
@@ -34,7 +33,7 @@ namespace TasksApp.Tasks
 
 		private static void GetInputData(out int a1, out int a2, out int a3)
 		{
-			string[] input = Console.ReadLine().Split();
+			var input = Console.ReadLine().Split();
 
 			a1 = int.Parse(input[0]);
 			a2 = int.Parse(input[1]);

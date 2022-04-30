@@ -35,18 +35,18 @@ namespace TasksApp.Tasks
 
 		private static void GetInputData(out int a, out int b, out int c, out int r)
 		{
-			var input = Console.ReadLine().Split();
+			var input = Console.ReadLine()?.Split();
 
-			a = int.Parse(input[0]);
-			b = int.Parse(input[1]);
-			c = int.Parse(input[2]);
+			int.TryParse(input?[0], out a);
+			int.TryParse(input?[1], out b);
+			int.TryParse(input?[2], out c);
 			
-			r = int.Parse(Console.ReadLine());
+			int.TryParse(Console.ReadLine(), out r);
 		}
 
 		public static string Solve(int a, int b, int c, int r)
 		{
-			var tempR = Math.Sqrt((-a + b + c) * (a - b + c) * (a + b - c) / (4 * (a + b + c)));
+			var tempR = Math.Sqrt((double)(-a + b + c) * (a - b + c) * (a + b - c) / (4 * (a + b + c)));
 
 			return tempR >= r ? "YES" : "NO";
 		}

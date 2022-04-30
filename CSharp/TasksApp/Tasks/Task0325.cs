@@ -22,8 +22,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            string sourceCell, terminalCell;
-            GetInputData(out sourceCell, out terminalCell);
+            GetInputData(out var sourceCell, out var terminalCell);
 
             var result = Solve(sourceCell, terminalCell);
 
@@ -63,28 +62,28 @@ namespace TasksApp.Tasks
             var column = cell[0] - 'a';
 
             if (column + 1 < 8 && row - 2 >= 0)
-                availableMoves.Add(getCoordinate(column + 1, row - 2));
+                availableMoves.Add(GetCoordinate(column + 1, row - 2));
             if (column + 2 < 8 && row - 1 >= 0)
-                availableMoves.Add(getCoordinate(column + 2, row - 1));
+                availableMoves.Add(GetCoordinate(column + 2, row - 1));
             if (column + 2 < 8 && row + 1 < 8)
-                availableMoves.Add(getCoordinate(column + 2, row + 1));
+                availableMoves.Add(GetCoordinate(column + 2, row + 1));
             if (column + 1 < 8 && row + 2 < 8)
-                availableMoves.Add(getCoordinate(column + 1, row + 2));
+                availableMoves.Add(GetCoordinate(column + 1, row + 2));
             if (column - 1 >= 0 && row + 2 < 8)
-                availableMoves.Add(getCoordinate(column - 1, row + 2));
+                availableMoves.Add(GetCoordinate(column - 1, row + 2));
             if (column - 2 >= 0 && row + 1 < 8)
-                availableMoves.Add(getCoordinate(column - 2, row + 1));
+                availableMoves.Add(GetCoordinate(column - 2, row + 1));
             if (column - 2 >= 0 && row - 1 >= 0)
-                availableMoves.Add(getCoordinate(column - 2, row - 1));
+                availableMoves.Add(GetCoordinate(column - 2, row - 1));
             if (column - 1 >= 0 && row - 2 >= 0)
-                availableMoves.Add(getCoordinate(column - 1, row - 2));
+                availableMoves.Add(GetCoordinate(column - 1, row - 2));
 
             return availableMoves;
         }
 
-        private static string getCoordinate(int column, int row)
+        private static string GetCoordinate(int column, int row)
         {
-            return String.Format("{0}{1}", (char)('a' + column), (char)('1' + row));
+            return $"{(char)('a' + column)}{(char)('1' + row)}";
         }
     }
 }

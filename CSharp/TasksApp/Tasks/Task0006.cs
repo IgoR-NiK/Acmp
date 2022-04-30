@@ -25,8 +25,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            string input;
-            GetInputData(out input);
+            GetInputData(out var input);
 
             var result = Solve(input);
 
@@ -40,15 +39,14 @@ namespace TasksApp.Tasks
 
         public static string Solve(string str)
         {
-            if (str.Length == 5 && isLetter(str[0]) && isDigit(str[1]) && isDash(str[2]) && isLetter(str[3]) && isDigit(str[4]))
+            if (str.Length == 5 && IsLetter(str[0]) && IsDigit(str[1]) && IsDash(str[2]) && IsLetter(str[3]) && IsDigit(str[4]))
                 if (Math.Abs(str[0] - str[3]) > 2 || Math.Abs(str[1] - str[4]) > 2)
                     return "NO";
                 else if (Math.Abs(str[0] - str[3]) + Math.Abs(str[1] - str[4]) == 3)
                     return "YES";
                 else
                     return "NO";
-            else
-                return "ERROR";
+            return "ERROR";
         }
 
         private static void PrintResult(string result)
@@ -56,17 +54,17 @@ namespace TasksApp.Tasks
             Console.WriteLine(result);
         }
 
-        private static bool isLetter(char symbol)
+        private static bool IsLetter(char symbol)
         {
             return symbol >= 'A' && symbol <= 'H';
         }
 
-        private static bool isDigit(char symbol)
+        private static bool IsDigit(char symbol)
         {
             return symbol >= '1' && symbol <= '8';
         }
 
-        private static bool isDash(char symbol)
+        private static bool IsDash(char symbol)
         {
             return symbol == '-';
         }        

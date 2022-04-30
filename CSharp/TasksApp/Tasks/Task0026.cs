@@ -19,10 +19,8 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int x1, y1, r1;
-            int x2, y2, r2;
-            GetInputData(out x1, out y1, out r1);
-            GetInputData(out x2, out y2, out r2);
+            GetInputData(out var x1, out var y1, out var r1);
+            GetInputData(out var x2, out var y2, out var r2);
 
             var result = Solve(x1, y1, r1, x2, y2, r2);
 

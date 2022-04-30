@@ -28,8 +28,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            int a, b, c, d;
-            GetInputData(out a, out b, out c, out d);
+            GetInputData(out var a, out var b, out var c, out var d);
 
             var result = Solve(a, b, c, d);
 
@@ -63,7 +62,7 @@ namespace TasksApp.Tasks
 
         private static void PrintResult(List<int> result)
         {
-            result.ForEach(x => Console.Write(String.Format("{0} ", x)));
+            result.ForEach(x => Console.Write($"{x} "));
         }
     }
 }

@@ -32,7 +32,7 @@ namespace TasksApp.Tasks
             var n = int.Parse(Console.ReadLine());
 
             numbers = new string[n];
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 numbers[i] = Console.ReadLine();
             }

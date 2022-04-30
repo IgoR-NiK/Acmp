@@ -30,8 +30,7 @@ namespace TasksApp.Tasks
 	{
 		public static void Main()
 		{
-			int[] tasks;
-			GetInputData(out tasks);
+			GetInputData(out var tasks);
 
 			var result = Solve(tasks);
 
@@ -41,7 +40,7 @@ namespace TasksApp.Tasks
 		private static void GetInputData(out int[] tasks)
 		{
 			var n = int.Parse(Console.ReadLine());
-			string[] input = Console.ReadLine().Split();
+			var input = Console.ReadLine().Split();
 
 			tasks = new int[n];
 			for (var i = 0; i < n; i++)

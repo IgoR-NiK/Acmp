@@ -37,7 +37,7 @@ namespace TasksApp.Tasks
 			for (var i = 0; i < n; i++)
 			{
 				var person = Console.ReadLine().Split();
-				input[i] = new Person()
+				input[i] = new Person
 				{
 					Age = int.Parse(person[0]),
 					Gender = int.Parse(person[1])

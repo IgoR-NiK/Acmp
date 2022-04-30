@@ -10,7 +10,7 @@ namespace TasksApp.Tasks
 	/// а за ночь спускаясь на B метров. На какой день улитка доползет до вершины шеста?
 	/// 
 	/// Входные данные
-	/// Входной файл INPUT.TXT содержит натуральные числа H, A и B. Ограничения: H ≤ 1000, B < A ≤ 100.
+	/// Входной файл INPUT.TXT содержит натуральные числа H, A и B. Ограничения: H ≤ 1000, B &lt; A ≤ 100.
 	/// 
 	/// Выходные данные
 	/// В выходной файл OUTPUT.TXT выведите натуральное число – количество дней, необходимых улитке для достижения вершины шеста.
@@ -28,10 +28,11 @@ namespace TasksApp.Tasks
 
         private static void GetInputData(out int h, out int a, out int b)
         {
-	        var input = Console.ReadLine().Split();
-	        h = int.Parse(input[0]);
-	        a = int.Parse(input[1]);
-	        b = int.Parse(input[2]);
+	        var input = Console.ReadLine()?.Split();
+	        
+	        int.TryParse(input?[0], out h);
+	        int.TryParse(input?[1], out a);
+	        int.TryParse(input?[2], out b);
         }
 
         public static int Solve(int h, int a, int b)

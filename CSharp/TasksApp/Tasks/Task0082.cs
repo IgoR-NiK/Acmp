@@ -22,9 +22,8 @@ namespace TasksApp.Tasks
     public static class Task0082 
     {
         public static void Main()
-        {            
-            int[] arrayN, arrayM;
-            GetInputData(out arrayN, out arrayM);
+        {
+            GetInputData(out var arrayN, out var arrayM);
 
             var result = Solve(arrayN, arrayM);
 
@@ -48,12 +47,10 @@ namespace TasksApp.Tasks
                 if (ch != -1 && Char.IsDigit((char)ch))
                 {
                     number.Append((char)ch);
-                    continue;
                 }
                 else
                 {
-                    int num;
-                    if (int.TryParse(number.ToString(), out num))
+                    if (int.TryParse(number.ToString(), out var num))
                     {
                         if (index < n)
                         {
@@ -73,11 +70,7 @@ namespace TasksApp.Tasks
                     }
                     else
                     {
-                        if (index < n + m)
-                        {
-                            continue;
-                        }
-                        else
+                        if (index >= n + m)
                         {
                             break;
                         }

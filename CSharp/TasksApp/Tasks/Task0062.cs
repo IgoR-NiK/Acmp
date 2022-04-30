@@ -20,8 +20,7 @@ namespace TasksApp.Tasks
     {
         public static void Main()
         {
-            string input;
-            GetInputData(out input);
+            GetInputData(out var input);
 
             var result = Solve(input);
 
@@ -35,10 +34,10 @@ namespace TasksApp.Tasks
 
         public static string Solve(string input)
         {
-            int X = input[0] - 'A' + 1;
-            int Y = Convert.ToInt32(input[1]);
+            var x = input[0] - 'A' + 1;
+            var y = Convert.ToInt32(input[1]);
             
-            return (X + Y) % 2 == 0 ? "BLACK" : "WHITE";
+            return (x + y) % 2 == 0 ? "BLACK" : "WHITE";
         }
 
         private static void PrintResult(string result)
