@@ -182,6 +182,7 @@
     <Compile Include="Tasks\Task1122.cs" />
     <Compile Include="Tasks\Task1123.cs" />
     <Compile Include="Tasks\Task1124.cs" />
+    <Compile Include="Tasks\Task1125.cs" />
     <Compile Include="Tasks\Task1132.cs" />
     <Compile Include="Tasks\Task1141.cs" />
     <Compile Include="Tasks\Task1146.cs" />
