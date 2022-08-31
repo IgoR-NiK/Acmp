@@ -98,6 +98,7 @@
     <Compile Include="Tests\Task0561Test.cs" />
     <Compile Include="Tests\Task0578Test.cs" />
     <Compile Include="Tests\Task0580Test.cs" />
+    <Compile Include="Tests\Task0606Test.cs" />
     <Compile Include="Tests\Task0664Test.cs" />
     <Compile Include="Tests\Task0697Test.cs" />
     <Compile Include="Tests\Task0700Test.cs" />

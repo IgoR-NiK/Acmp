@@ -99,6 +99,7 @@
     <Compile Include="Tasks\Task0561.cs" />
     <Compile Include="Tasks\Task0578.cs" />
     <Compile Include="Tasks\Task0580.cs" />
+    <Compile Include="Tasks\Task0606.cs" />
     <Compile Include="Tasks\Task0664.cs" />
     <Compile Include="Tasks\Task0697.cs" />
     <Compile Include="Tasks\Task0700.cs" />
