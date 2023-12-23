@@ -10,10 +10,10 @@ namespace TasksApp.Test.Tests
         {
             var solution = Task0275.Solve(numbers);
             
-            Assert.AreEqual(solution.Length, result.Length);
+            Assert.That(solution.Length, Is.EqualTo(result.Length));
             for (var i = 0; i < result.Length; i++)
             {
-                Assert.AreEqual(result[i], solution[i]);
+                Assert.That(result[i], Is.EqualTo(solution[i]));
             }
         }
 

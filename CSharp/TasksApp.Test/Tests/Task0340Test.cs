@@ -10,7 +10,7 @@ namespace TasksApp.Test.Tests
         {
             var actual = Task0340.Solve(box1, box2);
             
-            Assert.AreEqual(result, actual);
+            Assert.That(result, Is.EqualTo(actual));
         }
 
         [Test]

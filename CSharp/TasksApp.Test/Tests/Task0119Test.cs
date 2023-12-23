@@ -10,12 +10,12 @@ namespace TasksApp.Test.Tests
         {
             var resultTest = Task0119.Solve(input);
 
-			Assert.AreEqual(resultTest.Length, result.Length);
+			Assert.That(resultTest.Length, Is.EqualTo(result.Length));
 
 			var comparer = new Task0119.TimeIntervalComparer();
 			for (var i = 0; i < result.Length; i++)
 			{
-				Assert.AreEqual(comparer.Compare(resultTest[i], result[i]), 0);
+				Assert.That(comparer.Compare(resultTest[i], result[i]), Is.EqualTo(0));
 			}
         }
 

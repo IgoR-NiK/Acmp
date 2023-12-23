@@ -12,7 +12,7 @@ namespace TasksApp.Test.Tests
 
             for (var i = 0; i < resultTest.Length; i++)
             {
-                Assert.AreEqual(resultTest[i], result[i]);
+                Assert.That(resultTest[i], Is.EqualTo(result[i]));
             }
         }
 

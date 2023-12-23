@@ -10,7 +10,7 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int n, DateTime result)
         {
             var resultTest = Task0550.Solve(n);
-            Assert.AreEqual(resultTest, result);
+            Assert.That(resultTest, Is.EqualTo(result));
         }
 
         [Test]

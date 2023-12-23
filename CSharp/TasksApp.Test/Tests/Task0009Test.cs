@@ -9,8 +9,8 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int n, int[] array, Result output)
         {
             var test = Task0009.Solve(n, array);
-            Assert.AreEqual(test.Sum, output.Sum);
-            Assert.AreEqual(test.Mul, output.Mul);
+            Assert.That(test.Sum, Is.EqualTo(output.Sum));
+            Assert.That(test.Mul, Is.EqualTo(output.Mul));
         }
 
         [Test]

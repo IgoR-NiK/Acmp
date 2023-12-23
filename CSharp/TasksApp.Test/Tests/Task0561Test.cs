@@ -11,9 +11,9 @@ namespace TasksApp.Test.Tests
         {
             var solution = Task0561.Solve(towers).ToArray();
 
-            Assert.AreEqual(solution.Length, result.Length);
+            Assert.That(solution.Length, Is.EqualTo(result.Length));
             for (var i = 0; i < result.Length; i++)
-                Assert.AreEqual(solution[i], result[i]);
+                Assert.That(solution[i], Is.EqualTo(result[i]));
         }
 
         [Test]

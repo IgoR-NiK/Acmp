@@ -11,14 +11,14 @@ namespace TasksApp.Test.Tests
         {
             var test = Task0365.Solve(1, n);
 
-            Assert.AreEqual(test.Count, output.Count);
+            Assert.That(test.Count, Is.EqualTo(output.Count));
 
             var testHash = test.ConvertAll(Hash);
             var outputHash = output.ConvertAll(Hash);
 
             foreach (var e in testHash)
             {
-                Assert.IsTrue(outputHash.Contains(e));
+                Assert.That(outputHash.Contains(e));
             }
         }
 

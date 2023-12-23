@@ -9,9 +9,9 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int k, char[] result)
         {
             var actual = Task0504.Solve(k);
-            Assert.AreEqual(result[0], actual[0]);
-            Assert.AreEqual(result[1], actual[1]);
-            Assert.AreEqual(result[2], actual[2]);
+            Assert.That(result[0], Is.EqualTo(actual[0]));
+            Assert.That(result[1], Is.EqualTo(actual[1]));
+            Assert.That(result[2], Is.EqualTo(actual[2]));
         }
 
         [Test]

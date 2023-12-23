@@ -9,7 +9,7 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int w, int h, int n, Task0027.Rectangle[] rectangles, int output)
         {
             var test = Task0027.Solve(w, h, n, rectangles);
-            Assert.AreEqual(test, output);
+            Assert.That(test, Is.EqualTo(output));
         }
 
         [Test]

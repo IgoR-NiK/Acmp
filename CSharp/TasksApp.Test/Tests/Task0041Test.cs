@@ -20,10 +20,10 @@ namespace TasksApp.Test.Tests
 	            }
             }
             
-            Assert.AreEqual(result.Length, processedTest.Count);
+            Assert.That(result.Length, Is.EqualTo(processedTest.Count));
             for (var i = 0; i < result.Length; i++)
             {
-	            Assert.AreEqual(result[i], processedTest[i]);
+	            Assert.That(result[i], Is.EqualTo(processedTest[i]));
             }
         }
 

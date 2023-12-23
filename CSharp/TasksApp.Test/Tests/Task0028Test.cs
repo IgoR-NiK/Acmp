@@ -9,7 +9,7 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(Task0028.Line line, Task0028.Point a, Task0028.Point actual)
         {
             var test = Task0028.Solve(line, a);
-            Assert.AreEqual(test, actual);
+            Assert.That(test, Is.EqualTo(actual));
         }
 
         [Test]

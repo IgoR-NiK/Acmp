@@ -9,7 +9,7 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int a, int b, int result)
         {
             var answer = Task0001.Solve(a, b);
-            Assert.AreEqual(result, answer);
+            Assert.That(result, Is.EqualTo(answer));
         }
 
         [Test]

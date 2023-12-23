@@ -10,8 +10,8 @@ namespace TasksApp.Test.Tests
         {
             var solution = Task0700.Solve(n, v, k);
             
-			Assert.AreEqual(result.IsEmpty, solution.IsEmpty);
-			Assert.AreEqual(result.Volume, solution.Volume);
+			Assert.That(result.IsEmpty, Is.EqualTo(solution.IsEmpty));
+			Assert.That(result.Volume, Is.EqualTo(solution.Volume));
         }
 
         [Test]

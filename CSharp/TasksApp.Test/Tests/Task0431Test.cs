@@ -10,17 +10,17 @@ namespace TasksApp.Test.Tests
         {
             var test = Task0431.Solve(field);
             
-            Assert.AreEqual(result.IsSuccess, test.IsSuccess);
+            Assert.That(result.IsSuccess, Is.EqualTo(test.IsSuccess));
 
             if (result.IsSuccess)
             {
-                Assert.AreEqual(result.Field.GetLength(0), test.Field.GetLength(0));
+                Assert.That(result.Field.GetLength(0), Is.EqualTo(test.Field.GetLength(0)));
                 
                 for (var i = 0; i < result.Field.GetLength(0); i++)
                 {
                     for (var j = 0; j < result.Field.GetLength(1); j++)
                     {
-                        Assert.AreEqual(result.Field[i, j], test.Field[i, j]);
+                        Assert.That(result.Field[i, j], Is.EqualTo(test.Field[i, j]));
                     }
                 }
             }

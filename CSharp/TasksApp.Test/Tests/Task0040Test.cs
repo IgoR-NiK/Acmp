@@ -10,7 +10,7 @@ namespace TasksApp.Test.Tests
         {			
 			var bigInteger = new Task0040.BigInteger(result);
             var test = Task0040.Solve(n);
-			Assert.AreEqual(test.CompareTo(bigInteger), 0);
+			Assert.That(test.CompareTo(bigInteger), Is.EqualTo(0));
         }
 
         [Test]

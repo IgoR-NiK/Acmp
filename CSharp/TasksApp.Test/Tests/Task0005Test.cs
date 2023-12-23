@@ -12,12 +12,12 @@ namespace TasksApp.Test.Tests
             var resultTest = Task0005.Solve(n, days);
             
             for(var i = 0; i < resultTest.OddDays.Count; i++)            
-                Assert.AreEqual(resultTest.OddDays[i], result.OddDays[i]);
+                Assert.That(resultTest.OddDays[i], Is.EqualTo(result.OddDays[i]));
 
             for (var i = 0; i < resultTest.EvenDays.Count; i++)
-                Assert.AreEqual(resultTest.EvenDays[i], result.EvenDays[i]);
+                Assert.That(resultTest.EvenDays[i], Is.EqualTo(result.EvenDays[i]));
 
-            Assert.AreEqual(resultTest.Answer, answer);
+            Assert.That(resultTest.Answer, Is.EqualTo(answer));
         }
 
         [Test]

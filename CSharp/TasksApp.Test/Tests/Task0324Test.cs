@@ -10,7 +10,7 @@ namespace TasksApp.Test.Tests
         {
             var solution = Task0324.Solve(n);
 
-            Assert.AreEqual(result, solution);
+            Assert.That(result, Is.EqualTo(solution));
         }
 
         [Test]

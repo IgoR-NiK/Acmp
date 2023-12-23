@@ -10,11 +10,11 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(string point1, string point2, string[] results)
         {
             var actual = Task1088.Solve(point1, point2);
-			Assert.AreEqual(results.Length, actual.Length);
+			Assert.That(results.Length, Is.EqualTo(actual.Length));
 
             foreach (var result in results)
             {
-                Assert.True(actual.Contains(result));
+                Assert.That(actual.Contains(result));
             }
         }
 

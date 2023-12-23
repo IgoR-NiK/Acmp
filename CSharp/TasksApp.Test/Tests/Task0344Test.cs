@@ -10,9 +10,9 @@ namespace TasksApp.Test.Tests
         {
             var actual = Task0344.Solve(points);
             
-            Assert.AreEqual(result.Distance, actual.Distance);
-            Assert.AreEqual(result.Point1.Number, actual.Point1.Number);
-            Assert.AreEqual(result.Point2.Number, actual.Point2.Number);
+            Assert.That(result.Distance, Is.EqualTo(actual.Distance));
+            Assert.That(result.Point1.Number, Is.EqualTo(actual.Point1.Number));
+            Assert.That(result.Point2.Number, Is.EqualTo(actual.Point2.Number));
         }
 
         [Test]

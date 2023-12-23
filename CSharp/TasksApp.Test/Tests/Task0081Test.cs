@@ -9,8 +9,8 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int[] input, Task0081.Result result)
         {
             var resultTest = Task0081.Solve(input);
-            Assert.AreEqual(resultTest.Max, result.Max);
-            Assert.AreEqual(resultTest.Min, result.Min);
+            Assert.That(resultTest.Max, Is.EqualTo(result.Max));
+            Assert.That(resultTest.Min, Is.EqualTo(result.Min));
         }
 
         [Test]

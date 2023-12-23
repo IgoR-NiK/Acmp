@@ -11,7 +11,7 @@ namespace TasksApp.Test.Tests
 			var resultTest = Task0149.Solve(input);
 			for (var i = 0; i < result.Length; i++)
 			{
-				Assert.AreEqual(result[i], resultTest[i]);
+				Assert.That(result[i], Is.EqualTo(resultTest[i]));
 			}
 			
 		}

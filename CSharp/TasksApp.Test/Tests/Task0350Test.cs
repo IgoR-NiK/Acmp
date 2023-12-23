@@ -11,12 +11,12 @@ namespace TasksApp.Test.Tests
         {
             var test = Task0350.Solve(input);
             
-            Assert.AreEqual(result.Length, test.Length);
+            Assert.That(result.Length, Is.EqualTo(test.Length));
 
             foreach (var res in result)
             {
                 var count = test.Count(s => s == res);
-                Assert.AreEqual(count, 1);
+                Assert.That(count, Is.EqualTo(1));
             }
         }
 

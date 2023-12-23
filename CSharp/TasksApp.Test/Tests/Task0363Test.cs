@@ -9,7 +9,7 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(Task0363.BigInteger m, Task0363.BigInteger n, Task0363.BigInteger result)
         {			
             var test = Task0363.Solve(m, n);
-			Assert.AreEqual(test.CompareTo(result), 0);
+			Assert.That(test.CompareTo(result), Is.EqualTo(0));
         }
 
         [Test]

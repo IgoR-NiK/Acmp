@@ -9,8 +9,8 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int a, int b, int c, Task0819.Result result)
         {
             var resultTest = Task0819.Solve(a, b, c);
-            Assert.AreEqual(resultTest.S, result.S);
-			Assert.AreEqual(resultTest.V, result.V);
+            Assert.That(resultTest.S, Is.EqualTo(result.S));
+			Assert.That(resultTest.V, Is.EqualTo(result.V));
 		}
 
         [Test]

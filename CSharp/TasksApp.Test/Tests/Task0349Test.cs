@@ -12,10 +12,10 @@ namespace TasksApp.Test.Tests
         {
             var actual = Task0349.Solve(m, n).ToList();
             
-            Assert.AreEqual(expected.Count, actual.Count);
+            Assert.That(expected.Count, Is.EqualTo(actual.Count));
             for (var i = 0; i < expected.Count; i++)
             {
-                Assert.AreEqual(expected[i], actual[i]);
+                Assert.That(expected[i], Is.EqualTo(actual[i]));
             }
         }
 

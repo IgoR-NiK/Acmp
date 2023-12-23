@@ -10,14 +10,14 @@ namespace TasksApp.Test.Tests
         {
             var actual = Task1238.Solve(a, b);
             
-			Assert.AreEqual(result.GetLength(0), actual.GetLength(0));
-            Assert.AreEqual(result.GetLength(1), actual.GetLength(1));
+			Assert.That(result.GetLength(0), Is.EqualTo(actual.GetLength(0)));
+            Assert.That(result.GetLength(1), Is.EqualTo(actual.GetLength(1)));
             
             for (var i = 0; i < result.GetLength(0); i++)
             {
                 for (var j = 0; j < result.GetLength(1); j++)
                 {
-                    Assert.AreEqual(result[i, j], actual[i, j]);
+                    Assert.That(result[i, j], Is.EqualTo(actual[i, j]));
                 }
             }
         }

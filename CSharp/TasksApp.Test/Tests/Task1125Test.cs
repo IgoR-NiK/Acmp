@@ -10,11 +10,11 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(int n, int[] result)
         {
             var actual = Task1125.Solve(n).ToArray();
-			Assert.AreEqual(result.Length, actual.Length);
+			Assert.That(result.Length, Is.EqualTo(actual.Length));
 
             for (var i = 0; i < result.Length; i++)
             {
-                Assert.AreEqual(result[i], actual[i]);
+                Assert.That(result[i], Is.EqualTo(actual[i]));
             }
         }
 

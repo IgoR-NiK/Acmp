@@ -10,16 +10,16 @@ namespace TasksApp.Test.Tests
         {
             var actual = Task1232.Solve(numbers);
             
-			Assert.AreEqual(result.RowsSum.Length, actual.RowsSum.Length);
+			Assert.That(result.RowsSum.Length, Is.EqualTo(actual.RowsSum.Length));
             for (var i = 0; i < result.RowsSum.Length; i++)
             {
-                Assert.AreEqual(result.RowsSum[i], actual.RowsSum[i]);
+                Assert.That(result.RowsSum[i], Is.EqualTo(actual.RowsSum[i]));
             }
             
-            Assert.AreEqual(result.ColumnsSum.Length, actual.ColumnsSum.Length);
+            Assert.That(result.ColumnsSum.Length, Is.EqualTo(actual.ColumnsSum.Length));
             for (var i = 0; i < result.ColumnsSum.Length; i++)
             {
-                Assert.AreEqual(result.ColumnsSum[i], actual.ColumnsSum[i]);
+                Assert.That(result.ColumnsSum[i], Is.EqualTo(actual.ColumnsSum[i]));
             }
         }
 

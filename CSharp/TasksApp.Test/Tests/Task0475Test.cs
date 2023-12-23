@@ -11,7 +11,7 @@ namespace TasksApp.Test.Tests
         {
             var actual = Task0475.Solve(numbers);
             
-            Assert.AreEqual(result, actual);
+            Assert.That(result, Is.EqualTo(actual));
         }
 
         [Test]

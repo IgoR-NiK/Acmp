@@ -9,7 +9,7 @@ namespace TasksApp.Test.Tests
         private static void CheckTest(string firstCoordinate, string secondCoordinate, string output)
         {
             var test = Task0325.Solve(firstCoordinate, secondCoordinate);
-            Assert.AreEqual(test, output);
+            Assert.That(test, Is.EqualTo(output));
         }
 
         [Test]
